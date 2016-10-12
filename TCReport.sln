@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCReport", "TCReport\TCReport.csproj", "{65591E08-3FB5-402D-AAEE-368D0E82B182}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCReport.Dal", "TCReport.Dal\TCReport.Dal.csproj", "{7EE4E575-6973-475D-BF67-AE1DF0C033EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCReport.DTO", "TCReport.DTO\TCReport.DTO.csproj", "{B6890C0C-F98A-4672-A478-C99FE577F9E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65591E08-3FB5-402D-AAEE-368D0E82B182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65591E08-3FB5-402D-AAEE-368D0E82B182}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65591E08-3FB5-402D-AAEE-368D0E82B182}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65591E08-3FB5-402D-AAEE-368D0E82B182}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EE4E575-6973-475D-BF67-AE1DF0C033EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EE4E575-6973-475D-BF67-AE1DF0C033EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EE4E575-6973-475D-BF67-AE1DF0C033EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EE4E575-6973-475D-BF67-AE1DF0C033EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6890C0C-F98A-4672-A478-C99FE577F9E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6890C0C-F98A-4672-A478-C99FE577F9E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6890C0C-F98A-4672-A478-C99FE577F9E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6890C0C-F98A-4672-A478-C99FE577F9E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

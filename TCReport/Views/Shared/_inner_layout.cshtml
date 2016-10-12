@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/wwwroot/easyUI/themes/default/easyui.css" rel="stylesheet" />
+    <link href="~/wwwroot/easyUI/themes/icon.css" rel="stylesheet" />
+    <script src="~/wwwroot/easyUI/jquery.min.js"></script>
+    <script src="~/wwwroot/easyUI/jquery.easyui.min.js"></script>
+    @RenderSection("head", false)
+</head>
+<body style="margin:0px;">
+    <div id="main-panel" class="easyui-panel" style="width:100%;" data-options="border:false">
+        <div class="easyui-layout" style="height:100%;width:100%;" data-options="border:false">
+            <div data-options="region:'north',border:false">
+                <div class="easyui-panel" title="条件栏" style="height:110px;" data-options="border:false">
+                    <div class="easyui-layout" data-options="fit:true,border:false">
+                        <div data-options="region:'east'" style="width:200px;">
+                            @RenderSection("filterButtom", true)
+                        </div>
+                        <div data-options="region:'center'">
+                            @RenderSection("filterform", true)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-options="region:'center',border:false">
+                <table id="defaultDatagrid" class="easyui-datagrid"></table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $(function () {
+        $("#main-panel").panel({
+            height: $(window).height() + "px"
+        }); 
+    }); 
+</script>
+@RenderSection("foot", false)

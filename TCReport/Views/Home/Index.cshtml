@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+<div id="main-layout" class="easyui-layout" data-options="border:false">
+    <div data-options="region:'north'" style="height:50px"></div>
+    <div data-options="region:'south',split:true" style="height:50px;"></div>
+
+    <div data-options="region:'west',split:true, title:'系统导航栏',iconCls:'icon-ok'" style="width:10%;">
+        <div class="easyui-accordion" data-options="fit:true,border:false">
+            <div title="Title1" style="padding:10px;">
+                content1
+            </div>
+            <div title="Title2" data-options="selected:true" style="padding:10px;">
+                content2
+            </div>
+            <div title="Title3" style="padding:10px">
+                content3
+            </div>
+        </div>
+    </div>
+    <div id="centerRegion" data-options="region:'center'">
+        <iframe id="inner-iframe" src="http://localhost:58066/User/User/list" style="width:100%;height:100%; border:none; margin:0px;padding:0px; overflow-y: hidden; " scrolling="no"></iframe>
+    </div>
+</div>  
