@@ -7,18 +7,14 @@ using TCReport.Dal.Aspects.User;
 
 namespace TCReport.Controllers
 {
-    public class HomeController : BaseController
+    public class AccountController : BaseController
     {
         readonly IAccountBaseAct _accountBaseAct;
-        public HomeController(IAccountBaseAct accountBaseAct)
+        public AccountController(IAccountBaseAct accountBaseAct)
         {
             _accountBaseAct = accountBaseAct;
-        } 
-        public ActionResult Index()
-        { 
-            return View();
         }
-        public ActionResult Test()
+        public ActionResult Access()
         {
             return View();
         }

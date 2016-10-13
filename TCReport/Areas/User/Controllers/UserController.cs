@@ -16,6 +16,12 @@ namespace TCReport.Areas.User.Controllers
             return View();
         }
 
+        //public ActionResult Register()
+        //{
+        //    return View();
+        //}
+
+
         #region partail
         public ActionResult _AddUser()
         {

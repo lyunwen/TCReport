@@ -106,6 +106,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\_references.js" />
     <Content Include="wwwroot\easyUI\demo\accordion\datagrid_data1.json" />
     <Content Include="wwwroot\easyUI\demo\combobox\combobox_data1.json" />
     <Content Include="wwwroot\easyUI\demo\combobox\combobox_data2.json" />
@@ -874,8 +878,9 @@
     <Compile Include="Common\WXHelper.cs" />
     <Compile Include="Config\CookieConfig.cs" />
     <Compile Include="Config\SessionConfig.cs" />
-    <Compile Include="Controllers\Base\BoooooJuController.cs" />
+    <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\Base\TCReport_User.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\BoAuthorizeAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -895,6 +900,9 @@
     <Content Include="Areas\User\Views\web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Views\Account\Access.cshtml" />
+    <Content Include="Views\Shared\_layout_N.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

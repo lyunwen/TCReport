@@ -12,6 +12,6 @@ namespace TCReport.Areas.User.Controllers
         public ActionResult Index()
         {
             return View();
-        } 
+        }
     }
 }
