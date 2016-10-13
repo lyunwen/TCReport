@@ -9,7 +9,7 @@ namespace TCReport.DTO.DBModel
     /// <summary>
     /// Report_Default_WorkContent。
     /// </summary> 
-    public partial class Report_Default_WorkContent
+    public partial class Report_Default_PreWorkContent
     {
         private long _id;
         private long _report_defaultid;

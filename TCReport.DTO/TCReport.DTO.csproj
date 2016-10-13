@@ -40,21 +40,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BOModel\Report_Default_BO.cs" />
     <Compile Include="DBModel\Account.cs" />
     <Compile Include="DBModel\ReportData.cs" />
     <Compile Include="DBModel\ReportInstance.cs" />
     <Compile Include="DBModel\ReportType.cs" />
     <Compile Include="DBModel\Report_Default.cs" />
+    <Compile Include="DBModel\Report_Default_PreWorkContent.cs" />
     <Compile Include="DBModel\Report_Default_WorkContent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BOModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="DBModel\ModelSql\account.sql" />
     <Content Include="DBModel\ModelSql\tc_report_data.sql" />
     <Content Include="DBModel\ModelSql\tc_report_default.sql" />
+    <Content Include="DBModel\ModelSql\tc_report_default_preworkcontent.sql" />
     <Content Include="DBModel\ModelSql\tc_report_default_workcontent.sql" />
     <Content Include="DBModel\ModelSql\tc_report_instance.sql" />
     <Content Include="DBModel\ModelSql\tc_report_property.sql" />

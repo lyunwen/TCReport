@@ -47,16 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aspects\Report\ReportBaseAct.cs" />
     <Compile Include="Aspects\User\AccountBaseAct.cs" />
     <Compile Include="RDBCommander.cs" />
     <Compile Include="MDBCommander.cs" />
     <Compile Include="RDBQuery.cs" />
     <Compile Include="MDBQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test\Test.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Aspects\Report\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\TCReport.DTO\TCReport.DTO.csproj">
       <Project>{b6890c0c-f98a-4672-a478-c99fe577f9e7}</Project>

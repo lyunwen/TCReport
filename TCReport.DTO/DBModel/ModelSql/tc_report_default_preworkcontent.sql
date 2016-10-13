@@ -18,8 +18,8 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for `tc_report_default_workcontent`
 -- ----------------------------
-DROP TABLE IF EXISTS `tc_report_default_workcontent`;
-CREATE TABLE `tc_report_default_workcontent` (
+DROP TABLE IF EXISTS `tc_report_default_preworkcontent`;
+CREATE TABLE `tc_report_default_preworkcontent` (
   `ID` bigint(20) NOT NULL AUTO_INCREMENT,
   `Report_DefaultID` bigint(20) NOT NULL,
   `Content` varchar(255) NOT NULL,
