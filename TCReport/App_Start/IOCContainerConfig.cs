@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
+using TCReport.Dal.Aspects.Report;
 using TCReport.Dal.Aspects.User;
 
 namespace TCReport.App_Start
@@ -23,6 +24,7 @@ namespace TCReport.App_Start
         private void SetupResolveRules(ContainerBuilder builder)
         {
             builder.RegisterType<AccountBaseAct>().As<IAccountBaseAct>(); 
+            builder.RegisterType<ReportBaseAct>().As<IReportBaseAct>();
         }
     }
 }

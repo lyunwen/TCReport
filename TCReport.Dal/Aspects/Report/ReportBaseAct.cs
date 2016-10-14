@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TCReport.DTO.BOModel;
+using TCReport.DTO.DBModel;
 
 namespace TCReport.Dal.Aspects.Report
 {
@@ -27,12 +29,38 @@ namespace TCReport.Dal.Aspects.Report
     {
         Report_DefaultBO IReportBaseAct.Report_DefaultBOGetByID(long id)
         {
-            throw new NotImplementedException();
+            Report_DefaultBO result = null;
+            StringBuilder sqlCmd = new StringBuilder(@"SELECT * FROM tc_report_default AS tb_report");
+            sqlCmd.Append(" LEFT JOIN tc_report_default_preworkcontent tb_precontent ON tb_precontent.Report_DefaultID=tb_report.ID");
+            sqlCmd.Append(" LEFT JOIN tc_report_default_workcontent tb_content ON tb_content.Report_DefaultID=tb_report.ID");
+            sqlCmd.Append(" WHERE tb_report.ID=@ID");
+            using (var conn = MDBQuery.Open())
+            {
+                result = conn.Query<Report_DefaultBO, Report_Default_WorkContent, Report_Default_PreWorkContent, Report_DefaultBO>(sqlCmd.ToString(), (report, workContent, preWorkContent) =>
+                  {
+                      if (report == null)
+                          return null;
+                      report.PreWorkContents.Add(preWorkContent);
+                      report.WorkContents.Add(workContent);
+                      return report;
+                  }, new { ID = id }).FirstOrDefault();
+            }
+            return result;
         }
 
         int IReportBaseAct.Report_Default_BOInsert(Report_DefaultBO report)
         {
-            throw new NotImplementedException();
+            if (report == null)
+                return 0;
+            StringBuilder reportSql = new StringBuilder();
+            reportSql.Append("insert into tc_report_default (");
+            reportSql.Append("CreateTime,CreateBy,BeginDate,EndDate,Remark,LeaderRemark)");
+            reportSql.Append(" values (");
+            reportSql.Append("@CreateTime,@CreateBy,@BeginDate,@EndDate,@Remark,@LeaderRemark)");
+            using (var conn = MDBCommander.Open())
+            {
+                return conn.Execute(reportSql.ToString(), report);
+            }
         }
     }
 }
