@@ -17,7 +17,8 @@ namespace TCReport.Areas.User
             context.MapRoute(
                 "TCReport_default",
                 "TCReport/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional },
+                namespaces: new string[] { "TCReport.Areas.TCReport.Controllers" }
             );
         }
     }

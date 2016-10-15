@@ -24,17 +24,22 @@
         $(function () {
             $("#defaultDatagrid").datagrid({
                 toolbar: [{
-                    text: 'Add',
+                    id: 'add',
+                    text: '填写周报',
                     iconCls: 'icon-add',
                     handler: function () { alert('add') }
                 }, '-', {
                     text: 'Cut',
-                    iconCls: 'icon-cut',
-                    handler: function () { alert('cut') }
+                    iconCls: 'icon-cut', 
+                    handler: function () {
+                        $('#add').linkbutton('disable'); 
+                    }
                 }, '-', {
                     text: 'Save',
                     iconCls: 'icon-save',
-                    handler: function () { alert('save') }
+                    handler: function () {
+                        $('#add').linkbutton('enable');
+                    }
                 }],
                 columns: [[
                        { title: 'productid', field: 'productid', width: "14%", align: 'center', sortable: true },
@@ -51,6 +56,12 @@
                 url: '/wwwroot/easyUI/demo/datagrid/datagrid_data1.json',
                 method: 'get',
                 pagination: true,
+                onSelect: function (index, row) {
+                     
+                },
+                onUnselectAll:function(){
+                    $('#add').linkbutton('disable');
+                },
                 height: '100%'
             });
         });

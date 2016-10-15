@@ -107,6 +107,9 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Areas\TCReport\Views\Manage\index.cshtml" />
+    <Content Include="Areas\TCReport\Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
