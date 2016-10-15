@@ -45,61 +45,6 @@ namespace TCReport.Dal.Test
     }
 
     public class Foo
-    {
-
-        private static void OneToMany(string sqlConnectionString)
-        {
-            Console.WriteLine("One To Many");
-            List<User> userList = new List<User>();
-
-            using (IDbConnection connection = GetSqlConnection(sqlConnectionString))
-            {
-
-                string sqlCommandText3 = @"SELECT c.UserId,
-       c.Username      AS UserName,
-       c.PasswordHash  AS [Password],
-       c.Email,
-       c.PhoneNumber,
-       c.IsFirstTimeLogin,
-       c.AccessFailedCount,
-       c.CreationDate,
-       c.IsActive,
-       r.RoleId,
-       r.RoleName
-FROM   dbo.CICUser c WITH(NOLOCK)
-       LEFT JOIN CICUserRole cr
-            ON  cr.UserId = c.UserId
-       LEFT JOIN CICRole r
-            ON  r.RoleId = cr.RoleId";
-
-                var lookUp = new Dictionary<int, User>();
-                userList = connection.Query<User, Role, User>(sqlCommandText3,
-                    (user, role) =>
-                    {
-                        User u;
-                        if (!lookUp.TryGetValue(user.UserId, out u))
-                        {
-                            lookUp.Add(user.UserId, u = user);
-                        }
-                        u.Role.Add(role);
-                        return user;
-                    }, null, null, true, "RoleId", null, null).ToList();
-                var result = lookUp.Values;
-            }
-
-            if (userList.Count > 0)
-            {
-                userList.ForEach((item) => Console.WriteLine("UserName:" + item.UserName +
-                                             "----Password:" + item.Password +
-                                             "-----Role:" + item.Role.First().RoleName +
-                                             "\n"));
-
-                Console.ReadLine();
-            }
-            else
-            {
-                Console.WriteLine("No Data In UserList!");
-            }
-        }
+    { 
     }
 }
