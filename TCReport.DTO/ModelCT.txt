@@ -8,14 +8,15 @@ using System;
 using System.Text;
 using System.Collections.Generic; 
 using System.Data;
-namespace <#= host.NameSpace #>.Model<# if( host.Folder.Length > 0) {#>.<#= host.Folder #><# } #>
+using TCReport.DTO.DataBaseAttribute;
+namespace TCReport.DTO.DBModel
 {
 	<# if( host.TableDescription.Length > 0) {#>
  	//<#= host.TableDescription #>
 	<# } #>
+	[Table("<#= host.GetModelClass(host.TableName) #>")]
 	public class <#= host.GetModelClass(host.TableName) #>
-	{
-   		     
+	{   
       	<# foreach (ColumnInfo c in host.Fieldlist)
 		{ #>/// <summary>
 		/// <#= string.IsNullOrEmpty(c.Description) ? c.ColumnName : c.Description #>
@@ -26,8 +27,7 @@ namespace <#= host.NameSpace #>.Model<# if( host.Folder.Length > 0) {#>.<#= host
             get{ return _<#= c.ColumnName.ToString().ToLower()#>; }
             set{ _<#= c.ColumnName.ToString().ToLower() #> = value; }
         }        
-		<# } #>
-   
+		<# } #> 
 	}
 }
 
