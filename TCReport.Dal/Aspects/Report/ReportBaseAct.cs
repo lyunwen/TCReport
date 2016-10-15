@@ -50,17 +50,46 @@ namespace TCReport.Dal.Aspects.Report
 
         int IReportBaseAct.Report_Default_BOInsert(Report_DefaultBO report)
         {
+            int result;
             if (report == null)
                 return 0;
+            report.UUID = Guid.NewGuid().ToString();
             StringBuilder reportSql = new StringBuilder();
-            reportSql.Append("insert into tc_report_default (");
-            reportSql.Append("CreateTime,CreateBy,BeginDate,EndDate,Remark,LeaderRemark)");
-            reportSql.Append(" values (");
-            reportSql.Append("@CreateTime,@CreateBy,@BeginDate,@EndDate,@Remark,@LeaderRemark)");
+            reportSql.Append("INSERT INTO tc_report_default  ");
+            reportSql.Append("(UUID ,CreateTime ,CreateBy ,BeginDate ,EndDate ,Remark ,LeaderRemark ) ");
+            reportSql.Append(" VALUES ");
+            reportSql.Append("(@UUID,@CreateTime,@CreateBy,@BeginDate,@EndDate,@Remark,@LeaderRemark");
+            StringBuilder preWorkContentSql = new StringBuilder();
+            preWorkContentSql.Append("INSERT INTO tc_report_default_preworkcontent");
+            preWorkContentSql.Append(" (Report_DefaultUUID ,Content ,NeedDay ,Progress ,Level ,State ,Remark ,LeaderRemark ) ");
+            preWorkContentSql.Append(" VALUES ");
+            preWorkContentSql.Append(" (@Report_DefaultUUID,@Content,@NeedDay,@Progress,@Level,@State,@Remark,@LeaderRemark)");
+            StringBuilder workContentSql = new StringBuilder();
+            preWorkContentSql.Append("INSERT INTO tc_report_default_workcontent");
+            preWorkContentSql.Append(" (Report_DefaultUUID ,Content ,NeedDay ,Progress ,Level ,State ,Remark ,LeaderRemark )");
+            preWorkContentSql.Append(" VALUES ");
+            preWorkContentSql.Append(" (@Report_DefaultUUID,@Content,NeedDay,@Progress,@Level,@State,@Remark,@LeaderRemark)");
             using (var conn = MDBCommander.Open())
             {
-                return conn.Execute(reportSql.ToString(), report);
+                result = conn.Execute(reportSql.ToString(), report);
+                if (report.PreWorkContents != null)
+                {
+                    foreach (var item in report.PreWorkContents)
+                    {
+                        item.Report_DefaultUUID = report.UUID;
+                        result += conn.Execute(preWorkContentSql.ToString(), item);
+                    }
+                }
+                if (report.WorkContents != null)
+                {
+                    foreach (var item in report.WorkContents)
+                    {
+                        item.Report_DefaultUUID = report.UUID;
+                        result += conn.Execute(workContentSql.ToString(), item);
+                    }
+                }
             }
+            return result;
         }
     }
 }

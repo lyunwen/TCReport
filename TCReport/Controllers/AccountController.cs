@@ -18,5 +18,10 @@ namespace TCReport.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult RegisterByUserName(string userName,string password)
+        {
+            return Json("");
+        }
     }
 }

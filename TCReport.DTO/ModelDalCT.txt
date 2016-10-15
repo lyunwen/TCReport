@@ -1,0 +1,105 @@
+﻿<#@ template language="c#" HostSpecific="True" #>
+<#@ output extension= ".cs" #>
+<#
+	TableHost host = (TableHost)(Host);	
+	string DbParaHead=host.DbParaHead;
+	string DbParaDbType=host.DbParaDbType;
+	string preParameter=host.preParameter;
+	string ModelSpace = host.NameSpace+".Model."+ host.GetModelClass(host.TableName);
+	ColumnInfo identityKey=host.IdentityKey;
+	string returnValue = "void";
+    if (identityKey!=null)
+    {         
+         returnValue = CodeCommon.DbTypeToCS(identityKey.TypeName);              
+    }
+#>
+using System; 
+using System.Text;
+using System.Data.SqlClient;
+using System.Collections.Generic; 
+using System.Data;
+using Maticsoft.DBUtility;
+namespace <#= host.NameSpace #>.DAL  
+<# if( host.Folder.Length > 0){ #>
+	.<#= host.Folder #>
+<# } #>
+{
+	<# if( host.TableDescription.Length > 0) {#>
+ 	//<#= host.TableDescription #>
+	<# } #>
+	public partial class <#= host.GetDALClass(host.TableName) #>
+	{
+   		     
+		public bool Exists(<#= CodeCommon.GetInParameter(host.Keys, false) #>)
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("select count(1) from <#= host.TableName #>");
+			strSql.Append(" where ");
+			<# for(int i=0;i< host.Keys.Count;i++)
+            {ColumnInfo key = host.Keys[i]; #>
+                <# if (key.IsPrimaryKey || !key.IsIdentity)
+                {#>
+                      strSql.Append(" <#= key.ColumnName#> = <#=preParameter#><#=key.ColumnName#> <# if (i< host.Keys.Count-1 ){#>and <#}#> ");
+                <#}#>
+            <# }#>  
+		}
+		
+				
+		
+		/// <summary>
+		/// 增加一条数据
+		/// </summary>
+		public <#= returnValue #> Insert(<#= ModelSpace #> model)
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("insert into <#= host.TableName #>(");			
+            strSql.Append("<# for(int i=0;i< host.Fieldlist.Count;i++) {   ColumnInfo c = host.Fieldlist[i]; if (!c.IsIdentity) {#><#= c.ColumnName#><# if (i< host.Fieldlist.Count-1 ) {#>,<#}#><#}}#>");
+			strSql.Append(") values (");
+            strSql.Append("<# for(int i=0;i< host.Fieldlist.Count;i++) {   ColumnInfo c = host.Fieldlist[i]; if (!c.IsIdentity) {#><#=preParameter#><#= c.ColumnName#><# if (i< host.Fieldlist.Count-1 ) {#>,<#}#><#}}#>");            
+            strSql.Append(") "); 
+		}
+		
+		
+		/// <summary>
+		/// 更新一条数据
+		/// </summary>
+		public bool Update(<#= ModelSpace #> model)
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("update <#= host.TableName #> set ");
+			<# for(int i=0;i< host.Fieldlist.Count;i++)
+            {   ColumnInfo c = host.Fieldlist[i]; #>
+            <# if (!c.IsIdentity) {#>            
+            strSql.Append(" <#= c.ColumnName #> = <#=preParameter#><#=c.ColumnName#> <# if (i< host.Fieldlist.Count-1 ) {#>,<#}#> ");<# }#>
+            <# }#>			
+			strSql.Append(" where <#= CodeCommon.GetWhereParameterExpression(host.Keys, true ,host.DbType) #> ");
+ 
+		}
+		
+		
+		/// <summary>
+		/// 删除一条数据
+		/// </summary>
+		public bool Delete(<#=CodeCommon.GetInParameter(host.Keys, true)#>)
+		{
+			
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("delete from <#= host.TableName #> ");
+			strSql.Append(" where <#= CodeCommon.GetWhereParameterExpression(host.Keys, true, host.DbType)#>"); 
+		}
+		
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public <#= ModelSpace #> GetModel(<#= CodeCommon.GetInParameter(host.Keys,true) #>)
+		{
+			
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("select <# for(int i=0;i< host.Fieldlist.Count;i++) { #><#= host.Fieldlist[i].ColumnName #><# if(i< host.Fieldlist.Count-1 ) {#>,<# } #> <#}#> ");			
+			strSql.Append("  from <#= host.TableName #> ");
+			strSql.Append(" where <#= CodeCommon.GetWhereParameterExpression(host.Keys, true, host.DbType) #>");
+			 
+		} 
+	}
+}
+ 

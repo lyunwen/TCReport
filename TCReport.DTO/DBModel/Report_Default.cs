@@ -1,79 +1,87 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Data;
+using TCReport.DTO.DataBaseAttribute;
 
 namespace TCReport.DTO.DBModel
-{
-    /// <summary>
-    /// 类Report_Default。
-    /// </summary>
-    [Serializable]
-    public partial class Report_Default
+{ 
+    [Table("tc_report_default")]
+    public class tc_report_default
     {
-        private long _id;
-        private DateTime _createtime;
-        private long _createby;
-        private DateTime _begindate;
-        private DateTime _enddate;
-        private string _remark;
-        private string _leaderremark;
         /// <summary>
         /// auto_increment
-        /// </summary>
+        /// </summary>		
+        private long _id;
         public long ID
         {
-            set { _id = value; }
             get { return _id; }
+            set { _id = value; }
         }
         /// <summary>
-        /// 
-        /// </summary>
+        /// UUID
+        /// </summary>		
+        private string _uuid;
+        public string UUID
+        {
+            get { return _uuid; }
+            set { _uuid = value; }
+        }
+        /// <summary>
+        /// CreateTime
+        /// </summary>		
+        private DateTime _createtime;
         public DateTime CreateTime
         {
-            set { _createtime = value; }
             get { return _createtime; }
+            set { _createtime = value; }
         }
         /// <summary>
-        /// 
-        /// </summary>
-        public long CreateBy
+        /// CreateBy
+        /// </summary>		
+        private string _createby;
+        public string CreateBy
         {
-            set { _createby = value; }
             get { return _createby; }
+            set { _createby = value; }
         }
         /// <summary>
-        /// 
-        /// </summary>
+        /// BeginDate
+        /// </summary>		
+        private DateTime _begindate;
         public DateTime BeginDate
         {
-            set { _begindate = value; }
             get { return _begindate; }
+            set { _begindate = value; }
         }
         /// <summary>
-        /// 
-        /// </summary>
+        /// EndDate
+        /// </summary>		
+        private DateTime _enddate;
         public DateTime EndDate
         {
-            set { _enddate = value; }
             get { return _enddate; }
+            set { _enddate = value; }
         }
         /// <summary>
-        /// 
-        /// </summary>
+        /// Remark
+        /// </summary>		
+        private string _remark;
         public string Remark
         {
-            set { _remark = value; }
             get { return _remark; }
+            set { _remark = value; }
         }
         /// <summary>
-        /// 
-        /// </summary>
+        /// LeaderRemark
+        /// </summary>		
+        private string _leaderremark;
         public string LeaderRemark
         {
-            set { _leaderremark = value; }
             get { return _leaderremark; }
+            set { _leaderremark = value; }
         }
+
     }
 }
+

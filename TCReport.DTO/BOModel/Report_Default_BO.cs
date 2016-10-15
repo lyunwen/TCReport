@@ -11,6 +11,7 @@ namespace TCReport.DTO.BOModel
     {
         #region Report_Default 
         private long _id;
+        private string _uuid;
         private DateTime _createtime;
         private long _createby;
         private DateTime _begindate;
@@ -24,6 +25,11 @@ namespace TCReport.DTO.BOModel
         {
             set { _id = value; }
             get { return _id; }
+        }
+        public string UUID
+        {
+            get { return _uuid; }
+            set { _uuid = value; }
         }
         /// <summary>
         /// 

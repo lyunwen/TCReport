@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-
+using System.Collections.Generic;
+using System.Data;
 namespace TCReport.DTO.DBModel
 {
-   public class Account
-    { 
+    public class Account
+    {
         /// <summary>
         /// auto_increment
         /// </summary>		
@@ -137,3 +135,4 @@ namespace TCReport.DTO.DBModel
 
     }
 }
+

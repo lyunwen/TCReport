@@ -12,7 +12,7 @@ namespace TCReport.DTO.DBModel
     public partial class Report_Default_WorkContent
     {
         private long _id;
-        private long _report_defaultid;
+        private string _report_defaultuuid;
         private string _content;
         private int _needday;
         private decimal _progress;
@@ -31,10 +31,10 @@ namespace TCReport.DTO.DBModel
         /// <summary>
         /// 
         /// </summary>
-        public long Report_DefaultID
+        public string Report_DefaultUUID
         {
-            set { _report_defaultid = value; }
-            get { return _report_defaultid; }
+            set { _report_defaultuuid = value; }
+            get { return _report_defaultuuid; }
         }
         /// <summary>
         /// 

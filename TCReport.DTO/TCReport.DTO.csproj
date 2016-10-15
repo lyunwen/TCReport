@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BOModel\Report_Default_BO.cs" />
+    <Compile Include="DataBaseAttribute\TableAttribute.cs" />
     <Compile Include="DBModel\Account.cs" />
     <Compile Include="DBModel\ReportData.cs" />
     <Compile Include="DBModel\ReportInstance.cs" />
@@ -62,7 +63,8 @@
     <Content Include="DBModel\ModelSql\tc_report_instance.sql" />
     <Content Include="DBModel\ModelSql\tc_report_property.sql" />
     <Content Include="DBModel\ModelSql\tc_report_type.sql" />
-    <Content Include="数据库实体代码模板.txt" />
+    <Content Include="ModelDalCT.txt" />
+    <Content Include="ModelCT.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

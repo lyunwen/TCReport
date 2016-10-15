@@ -1,96 +1,93 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-
+using System.Collections.Generic;
+using System.Data;
 namespace TCReport.DTO.DBModel
 {
-    /// <summary>
-    /// Report_Default_WorkContent。
-    /// </summary> 
-    public partial class Report_Default_PreWorkContent
+    public class Report_Default_PreWorkContent
     {
-        private long _id;
-        private long _report_defaultid;
-        private string _content;
-        private int _needday;
-        private decimal _progress;
-        private int _level;
-        private int _state; 
-        private string _remark;
-        private string _leaderremark;
         /// <summary>
         /// auto_increment
-        /// </summary>
+        /// </summary>		
+        private long _id;
         public long ID
         {
-            set { _id = value; }
             get { return _id; }
+            set { _id = value; }
         }
         /// <summary>
-        /// 
-        /// </summary>
-        public long Report_DefaultID
+        /// Report_DefaultUUID
+        /// </summary>		
+        private string _report_defaultuuid;
+        public string Report_DefaultUUID
         {
-            set { _report_defaultid = value; }
-            get { return _report_defaultid; }
+            get { return _report_defaultuuid; }
+            set { _report_defaultuuid = value; }
         }
         /// <summary>
-        /// 
-        /// </summary>
+        /// Content
+        /// </summary>		
+        private string _content;
         public string Content
         {
-            set { _content = value; }
             get { return _content; }
+            set { _content = value; }
         }
         /// <summary>
-        /// 
-        /// </summary>
+        /// NeedDay
+        /// </summary>		
+        private int _needday;
         public int NeedDay
         {
-            set { _needday = value; }
             get { return _needday; }
+            set { _needday = value; }
         }
         /// <summary>
-        /// 
-        /// </summary>
+        /// Progress
+        /// </summary>		
+        private decimal _progress;
         public decimal Progress
         {
-            set { _progress = value; }
             get { return _progress; }
+            set { _progress = value; }
         }
         /// <summary>
-        /// 
-        /// </summary>
+        /// Level
+        /// </summary>		
+        private int _level;
         public int Level
         {
-            set { _level = value; }
             get { return _level; }
+            set { _level = value; }
         }
         /// <summary>
-        /// 
-        /// </summary>
+        /// State
+        /// </summary>		
+        private int _state;
         public int State
         {
-            set { _state = value; }
             get { return _state; }
-        } 
+            set { _state = value; }
+        }
         /// <summary>
-        /// 
-        /// </summary>
+        /// Remark
+        /// </summary>		
+        private string _remark;
         public string Remark
         {
-            set { _remark = value; }
             get { return _remark; }
+            set { _remark = value; }
         }
         /// <summary>
-        /// 
-        /// </summary>
+        /// LeaderRemark
+        /// </summary>		
+        private string _leaderremark;
         public string LeaderRemark
         {
-            set { _leaderremark = value; }
             get { return _leaderremark; }
+            set { _leaderremark = value; }
         }
+
     }
-} 
+}
+
