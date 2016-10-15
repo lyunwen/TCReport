@@ -14,14 +14,62 @@ namespace TCReport.Controllers
         {
             _accountBaseAct = accountBaseAct;
         }
-        public ActionResult Access()
+        [HttpGet]
+        public ActionResult SignIn()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult RegisterByUserName(string userName,string password)
+        public ActionResult SignIn(string userName, string password)
         {
-            return Json("");
+            var account = _accountBaseAct.AccountGetUserName(userName);
+            if (account == null)
+            {
+                return Json(new { msg = "用户名不存在", state = "false" });
+            }
+            else
+            {
+                if (account.Password == password)
+                {
+                    var cookie = Request.Cookies[Config.CookieConfig.SignInSuccessReturnUrl];
+                    string returnUrl = null;
+                    if (cookie != null)
+                    {
+                        returnUrl = cookie.Value;
+                    }
+                    return Json(new { state = "true", returnUrl = returnUrl });
+                }
+                else
+                {
+                    return Json(new { state = "false", msg = "用户名密码错误" });
+                }
+            }
+        }
+
+        public ActionResult SignUp()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult RegisterByUserName(string userName, string password)
+        { 
+            var account = _accountBaseAct.AccountGetUserName(userName);
+            if (account == null)
+            {
+                int result = _accountBaseAct.RegisterAccountByUserName(userName, password, "PC");
+                if (result > 0)
+                {
+                    return Json(new { state = "true" });
+                }
+                else
+                {
+                    return Json(new { state = "true", msg = "注册失败" });
+                }
+            }
+            else
+            {
+                return Json(new { state = "false", msg = "用户名已存在" });
+            }
         }
     }
 }

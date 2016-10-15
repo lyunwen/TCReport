@@ -1,0 +1,164 @@
+﻿@{
+    Layout = "~/Views/Shared/_layout_N.cshtml";
+}
+@section head{
+    <style>
+        .form-body {
+            font-size: 14px;
+            position: absolute;
+            border: 2px solid #dcd3d3;
+            width: 300px;
+            padding: 20px;
+            border-radius: 3px 4px;
+        }
+
+            .form-body .input-cell {
+                margin: 20px 0;
+            } 
+            .form-body .input-des {
+                display:inline-block;
+                width:65px;
+            }
+            .form-body .input-center {
+                display:inline-block; 
+            }
+            .form-body .input-center input{ 
+                width:170px;
+            }
+
+            .form-body .errorMsg {
+                font-size: 10px;
+                color: orangered;
+            }
+
+            .form-body .head {
+                text-align: center;
+                font-size: 16px;
+            }
+
+            .form-body .head {
+                font-size: 16px;
+            }
+
+            .form-body .content-Signup {
+                margin: 10px;
+            }
+
+            .form-body .foot {
+                float: right;
+            }
+    </style>
+}
+<div class="form-body" id="form-body">
+    <div class="head">注册</div>
+    <div class="content">
+        <div class="content-SignUp">
+            <form id="form-SignUp">
+                <div class="input-cell">
+                    <div class="input-des">
+                        <label>用户名</label>
+                    </div>
+                    <div class="input-center"> 
+                        <input type="text" id="userName" name="UserName" />
+                    </div>
+                </div>
+                <div class="input-cell">
+                    <div class="input-des">
+                        <label>密码</label>
+                    </div>
+                    <div class="input-center"> 
+                        <input type="password" id="password" name="Password" />
+                    </div>
+                </div>
+                <div class="input-cell">
+                    <div class="input-des">
+                        <label>确认密码</label>
+                    </div>
+                    <div class="input-center"> 
+                        <input type="password" id="comfirmPassword" name="ComfirmPassword" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="errorMsg"></div>
+    </div>
+    <div class="foot">
+        <input type="button" id="SignUp" value="注册" />
+        <a href="/account/signin">登入界面...</a>
+    </div>
+</div>
+@section foot{
+    <script type="text/javascript">
+        $(function () {
+            $("#SignUp").bind("click", function () { SignUp(); });
+            AccessInit();
+        })
+
+        function SignUpValidate() {
+            $(".errorMsg").text("").hide();
+            var result = true;
+            var userName = $("#userName").val();
+
+            if (userName == "") {
+                result = false;
+                $(".errorMsg").text($(".errorMsg").text()+" 用户为空").show();
+            }
+
+
+            var pswd = $('#password').val();
+            var comfrimPswd = $('#comfirmPassword').val();
+            if (pswd == "") {
+                result = false;
+                $(".errorMsg").text($(".errorMsg").text()+" 密码为空").show();
+            } else {
+                if (pswd != comfrimPswd) {
+                    result = false;
+                    $(".errorMsg").text($(".errorMsg").text()+" 两次密码输入不相同 ").show();
+                }
+            }
+            return result;
+        }
+
+        function AccessInit() {
+            var top = ($(window).height() - $("#form-body").height()) / 3;
+            var width = ($(window).width() - $("#form-body").width()) / 2;
+            $("#form-body").css("top", parseInt(top) + "px").css("left", parseInt(width) + "px");
+        }
+
+        function SignUp() {
+            if (SignUpValidate()) {
+                $.ajax({
+                    url: "/account/registerbyusername",
+                    data: $("#form-SignUp").serialize(),
+                    beforeSend: function () {
+                        $("#SignUp").unbind();
+                        $(".errorMsg").text("注册中...").css("color", "#c1bab7").show();
+                    },
+                    type: "POST",
+                    dataType: "json",
+                    success: function (e) {
+                        if (e.state === "true") {
+                            $(".errorMsg").text("注册成功!跳转中...").css("color", "#03d891").show();
+                            setTimeout(
+                                function () {
+                                    if (e.returnUrl) {
+                                        window.location.href = returnUrl;
+                                    }
+                                    window.location.href = "/account/signin";
+                                },
+                                3000
+                                );
+                        }
+                        if (e.state === "false") {
+                            $(".errorMsg").text(e.msg).css("color", "#ff5454").show();
+                        }
+                    },
+                    complete: function () {
+                        $("#SignUp").bind("click", function () { SignUp(); });
+                    }
+                });
+            }
+          
+        }
+    </script>
+}

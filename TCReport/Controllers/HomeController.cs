@@ -26,8 +26,8 @@ namespace TCReport.Controllers
             var t=_accountBaseAct.AccountGetByID(1);
             DTO.BOModel.Report_DefaultBO instance = new DTO.BOModel.Report_DefaultBO
             {
-                BeginDate = DateTime.Now,
-                CreateBy = 1,
+                BeginDate = DateTime.Now.Date,
+                CreateBy = TCReport_User.Id,
                 CreateTime = DateTime.Now,
                 EndDate = DateTime.Now,
                 LeaderRemark = null,

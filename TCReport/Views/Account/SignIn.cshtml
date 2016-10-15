@@ -1,0 +1,120 @@
+﻿@{
+    Layout = "~/Views/Shared/_layout_N.cshtml";
+}
+@section head{
+    <style>
+        .form-body {
+            font-size: 14px;
+            position: absolute;
+            border: 2px solid #dcd3d3;
+            width: 300px;
+            padding: 20px;
+            border-radius: 3px 4px;
+        }
+
+            .form-body .input-cell {
+                margin: 20px 0;
+            } 
+            .form-body .input-des {
+                display:inline-block;
+                width:65px;
+            }
+            .form-body .input-center {
+                display:inline-block; 
+            }
+            .form-body .input-center input{ 
+                width:170px;
+            }
+
+            .form-body .errorMsg {
+                font-size: 12px;
+                color: orangered;
+            }
+
+            .form-body .head {
+                text-align: center;
+                font-size: 16px;
+            }
+
+            .form-body .head {
+                font-size: 16px;
+            }
+
+            .form-body .content-SignIn {
+                margin: 10px;
+            }
+
+            .form-body .foot {
+                float: right;
+            }
+    </style>
+}
+<div class="form-body" id="form-body">
+    <div class="head">登入</div>
+    <div class="content">
+        <div class="content-SignIn">
+            <form id="form-SignIn">
+                <div class="input-cell">
+                    <div class="input-des">
+                        <label>用户名</label>
+                    </div>
+                    <div class="input-center">
+                        <input type="text" name="UserName" />
+                    </div>
+                </div> 
+                <div class="input-cell">
+                    <div class="input-des">
+                        <label>密码</label>
+                    </div>
+                    <div class="input-center">
+                        <input type="password" name="Password" />
+                    </div>
+                </div>  
+            </form>
+        </div>
+        <div class="errorMsg"></div>
+    </div>
+    <div class="foot">
+        <input type="button" id="SignIn" value="登入" />
+        <a href="/account/signup">注册界面...</a>
+    </div>
+</div>
+@section foot{
+    <script type="text/javascript">
+        $(function () {
+            $("#SignIn").bind("click", function () { SignIn(); });
+            AccessInit();
+        })
+        function AccessInit() {
+            var top = ($(window).height() - $("#form-body").height()) / 3;
+            var width = ($(window).width() - $("#form-body").width()) / 2;
+            $("#form-body").css("top", parseInt(top) + "px").css("left", parseInt(width) + "px");
+        }
+        function SignIn() {
+            $.ajax({
+                url: "/Account/SignIn",
+                data: $("#form-SignIn").serialize(),
+                beforeSend: function () {
+                    $("#SignIn").unbind();
+                    $(".errorMsg").text("登入中...").css("color", "#c1bab7").show();
+                },
+                type: "POST",
+                dataType: "json",
+                success: function (e) {
+                    if (e.state === "true") {
+                        if (e.returnUrl) {
+                            window.location.href = returnUrl;
+                        }
+                        window.location.href = "/home/index"
+                    }
+                    if (e.state === "false") {
+                        $(".errorMsg").text(e.msg).css("color", "#ff5454").show();
+                    }
+                },
+                complete: function () {
+                    $("#SignIn").bind("click", function () { SignIn(); });
+                }
+            });
+        }
+    </script>
+}

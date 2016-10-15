@@ -37,6 +37,11 @@ namespace TCReport.Config
         /// 用户信息Cookie名称
         /// </summary>
         public string User { get; private set; }
+
+        /// <summary>
+        /// 登入成功 转跳链接
+        /// </summary>
+        public static string SignInSuccessReturnUrl { get; private set; }
          
     }
 }
