@@ -24,6 +24,8 @@ namespace TCReport.Filters
             TCReport_User user = httpContext.Session[SessionConfig.TCReposrt_User] as TCReport_User;
             if (user == null)
             {
+                httpContext.Response.Redirect("/Account/signin");
+                httpContext.Response.End();
                 return false;
             }
             else

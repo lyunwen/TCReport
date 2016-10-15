@@ -888,7 +888,7 @@
     <Compile Include="Controllers\Base\TCReport_User.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Filters\BoAuthorizeAttribute.cs" />
+    <Compile Include="Filters\TCReportAuthorizeAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -949,7 +949,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58066</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:58066/</IISUrl>
+          <IISUrl>http://localhost:1000/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -5,9 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 using TCReport.Dal.Aspects.Report;
 using TCReport.Dal.Aspects.User;
+using TCReport.Filters;
 
 namespace TCReport.Controllers
 {
+    [TCReportAuthorizeAttribute]
     public class HomeController : BaseController
     {
         readonly IAccountBaseAct _accountBaseAct;
@@ -18,7 +20,8 @@ namespace TCReport.Controllers
             _reportBaseAct = reportBaseAct;
         }
         public ActionResult Index()
-        { 
+        {
+            ViewBag.LoginUser = LoginUser;
             return View();
         }
         public ActionResult Test()
