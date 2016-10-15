@@ -5,9 +5,9 @@ using System.Data;
 using TCReport.DTO.DataBaseAttribute;
 namespace TCReport.DTO.DBModel
 {
-	 	//tc_report_default
-		[Table("tc_report_default")]
-	public class Report_Default
+	 	//tc_report_type
+		[Table("tc_report_type")]
+	public class tc_report_type
 	{   
       	/// <summary>
 		/// auto_increment
@@ -19,13 +19,13 @@ namespace TCReport.DTO.DBModel
             set{ _id = value; }
         }        
 		/// <summary>
-		/// UUID
+		/// Name
         /// </summary>		
-		private string _uuid;
-        public string UUID
+		private string _name;
+        public string Name
         {
-            get{ return _uuid; }
-            set{ _uuid = value; }
+            get{ return _name; }
+            set{ _name = value; }
         }        
 		/// <summary>
 		/// CreateTime
@@ -39,47 +39,38 @@ namespace TCReport.DTO.DBModel
 		/// <summary>
 		/// CreateBy
         /// </summary>		
-		private string _createby;
-        public string CreateBy
+		private long _createby;
+        public long CreateBy
         {
             get{ return _createby; }
             set{ _createby = value; }
         }        
 		/// <summary>
-		/// BeginDate
+		/// Description
         /// </summary>		
-		private DateTime _begindate;
-        public DateTime BeginDate
+		private string _description;
+        public string Description
         {
-            get{ return _begindate; }
-            set{ _begindate = value; }
+            get{ return _description; }
+            set{ _description = value; }
         }        
 		/// <summary>
-		/// EndDate
+		/// IsValid
         /// </summary>		
-		private DateTime _enddate;
-        public DateTime EndDate
+		private bool _isvalid;
+        public bool IsValid
         {
-            get{ return _enddate; }
-            set{ _enddate = value; }
+            get{ return _isvalid; }
+            set{ _isvalid = value; }
         }        
 		/// <summary>
-		/// Remark
+		/// Type
         /// </summary>		
-		private string _remark;
-        public string Remark
+		private int _type;
+        public int Type
         {
-            get{ return _remark; }
-            set{ _remark = value; }
-        }        
-		/// <summary>
-		/// LeaderRemark
-        /// </summary>		
-		private string _leaderremark;
-        public string LeaderRemark
-        {
-            get{ return _leaderremark; }
-            set{ _leaderremark = value; }
+            get{ return _type; }
+            set{ _type = value; }
         }        
 		 
 	}

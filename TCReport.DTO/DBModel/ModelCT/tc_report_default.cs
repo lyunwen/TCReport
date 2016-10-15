@@ -7,7 +7,7 @@ namespace TCReport.DTO.DBModel
 {
 	 	//tc_report_default
 		[Table("tc_report_default")]
-	public class Report_Default
+	public class tc_report_default
 	{   
       	/// <summary>
 		/// auto_increment

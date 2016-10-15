@@ -5,9 +5,9 @@ using System.Data;
 using TCReport.DTO.DataBaseAttribute;
 namespace TCReport.DTO.DBModel
 {
-	 	//tc_report_default
-		[Table("tc_report_default")]
-	public class Report_Default
+	 	//tc_report_default_workcontent
+		[Table("tc_report_default_workcontent")]
+	public class tc_report_default_workcontent
 	{   
       	/// <summary>
 		/// auto_increment
@@ -19,49 +19,58 @@ namespace TCReport.DTO.DBModel
             set{ _id = value; }
         }        
 		/// <summary>
-		/// UUID
+		/// Report_DefaultUUID
         /// </summary>		
-		private string _uuid;
-        public string UUID
+		private string _report_defaultuuid;
+        public string Report_DefaultUUID
         {
-            get{ return _uuid; }
-            set{ _uuid = value; }
+            get{ return _report_defaultuuid; }
+            set{ _report_defaultuuid = value; }
         }        
 		/// <summary>
-		/// CreateTime
+		/// Content
         /// </summary>		
-		private DateTime _createtime;
-        public DateTime CreateTime
+		private string _content;
+        public string Content
         {
-            get{ return _createtime; }
-            set{ _createtime = value; }
+            get{ return _content; }
+            set{ _content = value; }
         }        
 		/// <summary>
-		/// CreateBy
+		/// NeedDay
         /// </summary>		
-		private string _createby;
-        public string CreateBy
+		private int _needday;
+        public int NeedDay
         {
-            get{ return _createby; }
-            set{ _createby = value; }
+            get{ return _needday; }
+            set{ _needday = value; }
         }        
 		/// <summary>
-		/// BeginDate
+		/// Progress
         /// </summary>		
-		private DateTime _begindate;
-        public DateTime BeginDate
+		private decimal _progress;
+        public decimal Progress
         {
-            get{ return _begindate; }
-            set{ _begindate = value; }
+            get{ return _progress; }
+            set{ _progress = value; }
         }        
 		/// <summary>
-		/// EndDate
+		/// Level
         /// </summary>		
-		private DateTime _enddate;
-        public DateTime EndDate
+		private int _level;
+        public int Level
         {
-            get{ return _enddate; }
-            set{ _enddate = value; }
+            get{ return _level; }
+            set{ _level = value; }
+        }        
+		/// <summary>
+		/// State
+        /// </summary>		
+		private int _state;
+        public int State
+        {
+            get{ return _state; }
+            set{ _state = value; }
         }        
 		/// <summary>
 		/// Remark

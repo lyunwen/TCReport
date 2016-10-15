@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-
+using System.Collections.Generic;
+using System.Data;
+using TCReport.DTO.DataBaseAttribute;
 namespace TCReport.DTO.DBModel
 {
+    //tc_report_type
+    [Table("tc_report_type")]
     public class ReportType
     {
         /// <summary>
@@ -65,21 +66,12 @@ namespace TCReport.DTO.DBModel
         /// <summary>
         /// Type
         /// </summary>		
-        private ReportInstanceType _type;
-        public ReportInstanceType Type
+        private int _type;
+        public int Type
         {
             get { return _type; }
             set { _type = value; }
         }
-    }
-    /// <summary>
-    /// 报表类型
-    /// </summary>
-    public enum ReportInstanceType
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        DefaultWeekReport=1
+
     }
 }

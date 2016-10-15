@@ -5,9 +5,9 @@ using System.Data;
 using TCReport.DTO.DataBaseAttribute;
 namespace TCReport.DTO.DBModel
 {
-	 	//tc_report_instance
-		[Table("tc_report_instance")]
-	public class ReportInstance
+	 	//tc_report_property
+		[Table("tc_report_property")]
+	public class tc_report_property
 	{   
       	/// <summary>
 		/// auto_increment
@@ -28,40 +28,40 @@ namespace TCReport.DTO.DBModel
             set{ _name = value; }
         }        
 		/// <summary>
-		/// ReportPropertyID
+		/// Type
         /// </summary>		
-		private long _reportpropertyid;
-        public long ReportPropertyID
+		private int _type;
+        public int Type
         {
-            get{ return _reportpropertyid; }
-            set{ _reportpropertyid = value; }
+            get{ return _type; }
+            set{ _type = value; }
         }        
 		/// <summary>
-		/// ReportTypeID
+		/// Regx
         /// </summary>		
-		private long _reporttypeid;
-        public long ReportTypeID
+		private string _regx;
+        public string Regx
         {
-            get{ return _reporttypeid; }
-            set{ _reporttypeid = value; }
-        }        
-		/// <summary>
-		/// CreateBy
-        /// </summary>		
-		private long _createby;
-        public long CreateBy
-        {
-            get{ return _createby; }
-            set{ _createby = value; }
+            get{ return _regx; }
+            set{ _regx = value; }
         }        
 		/// <summary>
 		/// CreateTime
         /// </summary>		
-		private long _createtime;
-        public long CreateTime
+		private DateTime _createtime;
+        public DateTime CreateTime
         {
             get{ return _createtime; }
             set{ _createtime = value; }
+        }        
+		/// <summary>
+		/// CreateBy
+        /// </summary>		
+		private DateTime _createby;
+        public DateTime CreateBy
+        {
+            get{ return _createby; }
+            set{ _createby = value; }
         }        
 		/// <summary>
 		/// IsValid
@@ -73,13 +73,13 @@ namespace TCReport.DTO.DBModel
             set{ _isvalid = value; }
         }        
 		/// <summary>
-		/// LastEditTime
+		/// ReportTypeID
         /// </summary>		
-		private DateTime _lastedittime;
-        public DateTime LastEditTime
+		private long _reporttypeid;
+        public long ReportTypeID
         {
-            get{ return _lastedittime; }
-            set{ _lastedittime = value; }
+            get{ return _reporttypeid; }
+            set{ _reporttypeid = value; }
         }        
 		 
 	}

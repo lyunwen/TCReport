@@ -7,7 +7,7 @@ namespace TCReport.DTO.DBModel
 {
 	 	//tc_report_instance
 		[Table("tc_report_instance")]
-	public class ReportInstance
+	public class tc_report_instance
 	{   
       	/// <summary>
 		/// auto_increment

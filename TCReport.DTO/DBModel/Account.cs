@@ -2,8 +2,10 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Data;
+using TCReport.DTO.DataBaseAttribute;
 namespace TCReport.DTO.DBModel
 {
+    [Table("account")]
     public class Account
     {
         /// <summary>
