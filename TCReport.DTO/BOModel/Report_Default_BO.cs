@@ -9,9 +9,10 @@ namespace TCReport.DTO.BOModel
 {
     public class Report_DefaultBO
     {
+        #region Report_Default 
         private long _id;
         private DateTime _createtime;
-        private string _createby;
+        private long _createby;
         private DateTime _begindate;
         private DateTime _enddate;
         private string _remark;
@@ -35,7 +36,7 @@ namespace TCReport.DTO.BOModel
         /// <summary>
         /// 
         /// </summary>
-        public string CreateBy
+        public long CreateBy
         {
             set { _createby = value; }
             get { return _createby; }
@@ -72,6 +73,7 @@ namespace TCReport.DTO.BOModel
             set { _leaderremark = value; }
             get { return _leaderremark; }
         }
+        #endregion
 
         public IList<Report_Default_WorkContent> WorkContents { get; set; }
         public IList<Report_Default_PreWorkContent> PreWorkContents { get; set; }

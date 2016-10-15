@@ -14,7 +14,7 @@ namespace TCReport.DTO.DBModel
     {
         private long _id;
         private DateTime _createtime;
-        private string _createby;
+        private long _createby;
         private DateTime _begindate;
         private DateTime _enddate;
         private string _remark;
@@ -38,7 +38,7 @@ namespace TCReport.DTO.DBModel
         /// <summary>
         /// 
         /// </summary>
-        public string CreateBy
+        public long CreateBy
         {
             set { _createby = value; }
             get { return _createby; }

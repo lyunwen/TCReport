@@ -45,6 +45,14 @@ namespace TCReport.Dal.Test
     }
 
     public class Foo
-    { 
+    {
+
+        private static void OneToMany(string sqlConnectionString)
+        {
+            Console.WriteLine("One To Many");
+            List<User> userList = new List<User>();
+
+       
+        }
     }
 }
