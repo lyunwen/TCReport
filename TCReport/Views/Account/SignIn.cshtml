@@ -14,17 +14,20 @@
 
             .form-body .input-cell {
                 margin: 20px 0;
-            } 
+            }
+
             .form-body .input-des {
-                display:inline-block;
-                width:65px;
+                display: inline-block;
+                width: 65px;
             }
+
             .form-body .input-center {
-                display:inline-block; 
+                display: inline-block;
             }
-            .form-body .input-center input{ 
-                width:170px;
-            }
+
+                .form-body .input-center input {
+                    width: 170px;
+                }
 
             .form-body .errorMsg {
                 font-size: 12px;
@@ -59,24 +62,24 @@
                         <label>用户名</label>
                     </div>
                     <div class="input-center">
-                        <input type="text" name="UserName" />
+                        <input type="text" id="userName" name="UserName" />
                     </div>
-                </div> 
+                </div>
                 <div class="input-cell">
                     <div class="input-des">
                         <label>密码</label>
                     </div>
                     <div class="input-center">
-                        <input type="password" name="Password" />
+                        <input type="password" id="password" name="Password" />
                     </div>
-                </div>  
+                </div>
             </form>
         </div>
         <div class="errorMsg"></div>
     </div>
     <div class="foot">
         <input type="button" id="SignIn" value="登入" />
-        <a href="/account/signup">注册界面...</a>
+        <a href="/account/signup" style="font-size:12px;">注册界面...</a>
     </div>
 </div>
 @section foot{
@@ -85,36 +88,55 @@
             $("#SignIn").bind("click", function () { SignIn(); });
             AccessInit();
         })
+
+        function SignInValidate() {
+            $(".errorMsg").text("");
+            var result = true;
+            if ($("#userName").val() == "") {
+                result = false;
+                $(".errorMsg").text($(".errorMsg").text()+" 用户名为空").css("color", "#ff5454").show(); 
+            }
+            if ($("#password").val() == "") {
+                result = false; 
+                $(".errorMsg").text($(".errorMsg").text()+ " 密码为空").css("color", "#ff5454").show();
+            }
+            return result;
+        }
+
         function AccessInit() {
             var top = ($(window).height() - $("#form-body").height()) / 3;
             var width = ($(window).width() - $("#form-body").width()) / 2;
             $("#form-body").css("top", parseInt(top) + "px").css("left", parseInt(width) + "px");
         }
+
         function SignIn() {
-            $.ajax({
-                url: "/Account/SignIn",
-                data: $("#form-SignIn").serialize(),
-                beforeSend: function () {
-                    $("#SignIn").unbind();
-                    $(".errorMsg").text("登入中...").css("color", "#c1bab7").show();
-                },
-                type: "POST",
-                dataType: "json",
-                success: function (e) {
-                    if (e.state === "true") {
-                        if (e.returnUrl) {
-                            window.location.href = returnUrl;
+            if (SignInValidate()) {
+                $.ajax({
+                    url: "/Account/SignIn",
+                    data: $("#form-SignIn").serialize(),
+                    beforeSend: function () {
+                        $("#SignIn").unbind();
+                        $(".errorMsg").text("登入中...").css("color", "#c1bab7").show();
+                    },
+                    type: "POST",
+                    dataType: "json",
+                    success: function (e) {
+                        if (e.state === "true") {
+                            if (e.returnUrl) {
+                                window.location.href = returnUrl;
+                            }
+                            window.location.href = "/home/index"
                         }
-                        window.location.href = "/home/index"
+                        if (e.state === "false") {
+                            $(".errorMsg").text(e.msg).css("color", "#ff5454").show();
+                        }
+                    },
+                    complete: function () {
+                        $("#SignIn").bind("click", function () { SignIn(); });
                     }
-                    if (e.state === "false") {
-                        $(".errorMsg").text(e.msg).css("color", "#ff5454").show();
-                    }
-                },
-                complete: function () {
-                    $("#SignIn").bind("click", function () { SignIn(); });
-                }
-            });
+                });
+            }
+          
         }
     </script>
 }

@@ -84,7 +84,7 @@
     </div>
     <div class="foot">
         <input type="button" id="SignUp" value="注册" />
-        <a href="/account/signin">登入界面...</a>
+        <a href="/account/signin" style="font-size:12px;">登入界面...</a>
     </div>
 </div>
 @section foot{
@@ -101,7 +101,7 @@
 
             if (userName == "") {
                 result = false;
-                $(".errorMsg").text($(".errorMsg").text()+" 用户为空").show();
+                $(".errorMsg").text($(".errorMsg").text() + " 用户为空").css("color", "#ff5454").show();
             }
 
 
@@ -109,11 +109,11 @@
             var comfrimPswd = $('#comfirmPassword').val();
             if (pswd == "") {
                 result = false;
-                $(".errorMsg").text($(".errorMsg").text()+" 密码为空").show();
+                $(".errorMsg").text($(".errorMsg").text() + " 密码为空").css("color", "#ff5454").show();
             } else {
                 if (pswd != comfrimPswd) {
                     result = false;
-                    $(".errorMsg").text($(".errorMsg").text()+" 两次密码输入不相同 ").show();
+                    $(".errorMsg").text($(".errorMsg").text() + " 两次密码输入不相同 ").css("color", "#ff5454").show();
                 }
             }
             return result;
