@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "~/Views/Shared/_inner_layout.cshtml";
+} 
+@section filterForm{
+    <label style="margin:10px; display:inline-block;" for="userName">用户名：<input id="userName" class="easyui-textbox" style="width:150px;"> </label>
+    <label for="registerType">
+        注册类型：
+        <select id="registerType" class="easyui-combobox" name="dept" style="width:150px;">
+            <option value="aa">aitem1</option>
+            <option>bitem2</option>
+            <option>bitem3</option>
+            <option>ditem4</option>
+            <option>eitem5</option>
+        </select>
+    </label> 
+}
+@section filterButtom{
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="width:70px;display:inline-block; margin:5px;">Search</a>
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="width:70px;display:inline-block; margin:5px;">Clear</a>
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="width:70px;display:inline-block; margin:5px;">Auto</a>
+}
+@section foot{
+    <script>
+        $(function () {
+            $("#defaultDatagrid").datagrid({
+                toolbar: [{
+                    text: 'Add',
+                    iconCls: 'icon-add',
+                    handler: function () { alert('add') }
+                }, '-', {
+                    text: 'Cut',
+                    iconCls: 'icon-cut',
+                    handler: function () { alert('cut') }
+                }, '-', {
+                    text: 'Save',
+                    iconCls: 'icon-save',
+                    handler: function () { alert('save') }
+                }],
+                columns: [[
+                       { title: 'productid', field: 'productid', width: "14%", align: 'center', sortable: true },
+                       { title: 'productname', field: 'productname', width: "14%", align: 'center' },
+                       { title: 'unitcost', field: 'unitcost', width: "14%", align: 'center' },
+                       { title: 'status', field: 'status', width: "14%", align: 'center' },
+                       { title: 'listprice', field: 'status', width: "14%", align: 'center' },
+                       { title: 'attr1', field: 'status', width: "14%", align: 'center' },
+                       { title: 'itemid', field: 'status', width: "14%", align: 'center' }
+                ]],
+                loadMsg: "loading...",
+                rownumbers: true,
+                singleSelect: true,
+                url: '/wwwroot/easyUI/demo/datagrid/datagrid_data1.json',
+                method: 'get',
+                pagination: true,
+                height: '100%'
+            });
+        });
+    </script>
+}

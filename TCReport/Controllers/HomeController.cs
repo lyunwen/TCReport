@@ -18,7 +18,7 @@ namespace TCReport.Controllers
             _reportBaseAct = reportBaseAct;
         }
         public ActionResult Index()
-        {
+        { 
             return View();
         }
         public ActionResult Test()
@@ -27,7 +27,7 @@ namespace TCReport.Controllers
             DTO.BOModel.Report_DefaultBO instance = new DTO.BOModel.Report_DefaultBO
             {
                 BeginDate = DateTime.Now.Date,
-                CreateBy = TCReport_User.Id,
+                CreateBy = LoginUser.Id,
                 CreateTime = DateTime.Now,
                 EndDate = DateTime.Now,
                 LeaderRemark = null,

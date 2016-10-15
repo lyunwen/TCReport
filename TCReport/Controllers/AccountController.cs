@@ -31,6 +31,13 @@ namespace TCReport.Controllers
             {
                 if (account.Password == password)
                 {
+                    LoginUser = new TCReport_User
+                    {
+                        Id = account.ID,
+                        Logon = DateTime.Now,
+                        UserName = account.UserName,
+                        Roles = account.Role
+                    };
                     var cookie = Request.Cookies[Config.CookieConfig.SignInSuccessReturnUrl];
                     string returnUrl = null;
                     if (cookie != null)
@@ -52,7 +59,7 @@ namespace TCReport.Controllers
         }
         [HttpPost]
         public ActionResult RegisterByUserName(string userName, string password)
-        { 
+        {
             var account = _accountBaseAct.AccountGetUserName(userName);
             if (account == null)
             {

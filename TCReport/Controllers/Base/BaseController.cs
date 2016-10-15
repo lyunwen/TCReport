@@ -8,11 +8,15 @@ namespace TCReport.Controllers
 {
     public abstract class BaseController : Controller
     {
-        internal Controllers.TCReport_User TCReport_User
+        internal Controllers.TCReport_User LoginUser
         {
             get
             {
                 return Session[Config.SessionConfig.TCReposrt_User] as Controllers.TCReport_User;
+            }
+             set
+            {
+                Session[Config.SessionConfig.TCReposrt_User] = value;
             }
         }
         /// <summary>

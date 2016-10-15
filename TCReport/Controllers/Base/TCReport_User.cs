@@ -32,7 +32,7 @@ namespace TCReport.Controllers
         /// <summary>
         /// 用户权限 type:BoooooJuPermit
         /// </summary>
-        internal int Roles { get; set; }
+        internal long Roles { get; set; }
         /// <summary>
         /// 用户消息Socket
         /// </summary>
