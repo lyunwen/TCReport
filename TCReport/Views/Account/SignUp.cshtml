@@ -141,6 +141,11 @@
             var top = ($(window).height() - $("#form-body").height()) / 3;
             var width = ($(window).width() - $("#form-body").width()) / 2;
             $("#form-body").css("top", parseInt(top) + "px").css("left", parseInt(width) + "px");
+            $('#SignUp').bind('keyup', function (event) {
+                if (event.keyCode == "13") { 
+                    SignUp();
+                }
+            });
         }
 
         function SignUp() {

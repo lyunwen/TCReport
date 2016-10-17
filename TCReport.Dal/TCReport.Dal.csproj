@@ -49,6 +49,8 @@
   <ItemGroup>
     <Compile Include="Aspects\Report\ReportBaseAct.cs" />
     <Compile Include="Aspects\User\AccountBaseAct.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="DapperExtention.cs" />
     <Compile Include="RDBCommander.cs" />
     <Compile Include="MDBCommander.cs" />
     <Compile Include="RDBQuery.cs" />

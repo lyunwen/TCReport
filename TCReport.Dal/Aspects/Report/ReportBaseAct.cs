@@ -39,7 +39,7 @@ namespace TCReport.Dal.Aspects.Report
                 result = conn.Query<Report_DefaultBO, Report_Default_WorkContent, Report_DefaultBO>(sqlCmd.ToString(), (report, workContent) =>
                   {
                       if (report == null)
-                          return null;
+                          return null; 
                       report.WorkContents.Add(workContent);
                       return report;
                   }, new { ID = id }).FirstOrDefault();

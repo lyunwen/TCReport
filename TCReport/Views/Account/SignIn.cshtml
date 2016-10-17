@@ -100,7 +100,7 @@
     <script type="text/javascript">
         $(function () {
             $("#SignIn").bind("click", function () { SignIn(); });
-            AccessInit();
+            AccessInit(); 
         })
 
         function SignInValidate() {
@@ -120,7 +120,7 @@
         function AccessInit() {
             var top = ($(window).height() - $("#form-body").height()) / 3;
             var width = ($(window).width() - $("#form-body").width()) / 2;
-            $("#form-body").css("top", parseInt(top) + "px").css("left", parseInt(width) + "px");
+            $("#form-body").css("top", parseInt(top) + "px").css("left", parseInt(width) + "px"); 
         }
 
         function SignIn() {

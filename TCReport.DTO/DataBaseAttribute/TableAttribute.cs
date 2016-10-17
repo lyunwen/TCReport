@@ -8,10 +8,14 @@ namespace TCReport.DTO.DataBaseAttribute
 {
     public class TableAttribute : Attribute
     {
-        private readonly string _tableName;
-        public TableAttribute(string tableName)
+        private readonly string _name;
+        public String Name
         {
-            _tableName = tableName;
-        } 
+            get { return _name; }
+        }
+        public TableAttribute(string name)
+        {
+            _name = Name;
+        }
     }
 }

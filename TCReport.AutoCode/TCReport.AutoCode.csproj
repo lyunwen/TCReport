@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B6890C0C-F98A-4672-A478-C99FE577F9E7}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{5EB49280-1D17-4E9A-8700-B6B1B831BCAA}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TCReport.DTO</RootNamespace>
-    <AssemblyName>TCReport.DTO</AssemblyName>
+    <RootNamespace>TCReport.AutoCode</RootNamespace>
+    <AssemblyName>TCReport.AutoCode</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,40 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BOModel\Report_DefaultBO.cs" />
-    <Compile Include="DataBaseAttribute\KeyAttribute.cs" />
-    <Compile Include="DataBaseAttribute\TableAttribute.cs" />
-    <Compile Include="DBModel\Account_ReportGroup_Mapping.cs" />
-    <Compile Include="DBModel\Account.cs" />
-    <Compile Include="DBModel\Account_ResourceGroup_Mapping.cs" />
-    <Compile Include="DBModel\ResourceGroup.cs" />
-    <Compile Include="DBModel\Resource.cs" />
-    <Compile Include="DBModel\ReportGroup.cs" />
-    <Compile Include="DBModel\Report_Default.cs" />
-    <Compile Include="DBModel\Report_Default_PreWorkContent.cs" />
-    <Compile Include="DBModel\Report_Default_WorkContent.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DBModel\autoCode\" />
-    <Folder Include="DBModel\ModelCT\" />
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DBModel\ModelSql\account.sql" />
-    <Content Include="DBModel\ModelSql\account_reportgroup_mapping.sql" />
-    <Content Include="DBModel\ModelSql\account_resourcegroup_mapping.sql" />
-    <Content Include="DBModel\ModelSql\resource.sql" />
-    <Content Include="DBModel\ModelSql\resourcegroup.sql" />
-    <Content Include="DBModel\ModelSql\tc_reportgroup.sql" />
-    <Content Include="DBModel\ModelSql\tc_report_data.sql" />
-    <Content Include="DBModel\ModelSql\tc_report_default.sql" />
-    <Content Include="DBModel\ModelSql\tc_report_default_preworkcontent.sql" />
-    <Content Include="DBModel\ModelSql\tc_report_default_workcontent.sql" />
-    <Content Include="DBModel\ModelSql\tc_report_instance.sql" />
-    <Content Include="DBModel\ModelSql\tc_report_property.sql" />
-    <Content Include="DBModel\ModelSql\tc_report_type.sql" />
-    <Content Include="ModelDalCT.txt" />
-    <Content Include="ModelCT.txt" />
+    <ProjectReference Include="..\TCReport.DTO\TCReport.DTO.csproj">
+      <Project>{b6890c0c-f98a-4672-a478-c99fe577f9e7}</Project>
+      <Name>TCReport.DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
