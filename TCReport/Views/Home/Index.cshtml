@@ -1,9 +1,17 @@
 ﻿@{
     Layout = "~/Views/Shared/_layout.cshtml";
 }
+@section head{
+    <style>
+        .head-user-info{
+            float:right;
+            margin:10px;
+        }
+    </style>
+    }
 <div id="main-layout" class="easyui-layout" data-options="border:false">
     <div data-options="region:'north'" style="height:50px">
-        <div>[@ViewBag.LoginUser.UserName]<a href="##">注销</a></div>
+        <div class="head-user-info">[@ViewBag.LoginUser.UserName]<a href="/account/signoff">注销</a></div>
     </div>
     <div data-options="region:'south',split:true" style="height:50px;"></div> 
     <div data-options="region:'west',split:true, title:'系统导航栏',iconCls:'icon-ok'" style="width:10%;">

@@ -78,5 +78,11 @@ namespace TCReport.Controllers
                 return Json(new { state = "false", msg = "用户名已存在" });
             }
         }
+
+        public ActionResult SignOff()
+        {
+            LoginUser = null;
+            return RedirectToAction("signin");
+        }
     }
 }

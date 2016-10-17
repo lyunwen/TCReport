@@ -6,25 +6,42 @@
         .form-body {
             font-size: 14px;
             position: absolute;
-            border: 2px solid #dcd3d3;
             width: 300px;
             padding: 20px;
             border-radius: 3px 4px;
+            border: 1px solid #d0d0d0;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            /*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
+            -moz-box-shadow: 0px 0px 1px #000000;
+            -webkit-box-shadow: 0px 0px 1px #000000;
+            box-shadow: 0px 0px 1px #000000;
+            /*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
+            opacity: 0.88;
+            -ms-filter: progid: DXImageTransform.Microsoft.Alpha(Opacity = 88);
+            /*-ms-filter must come before filter*/
+            filter: alpha(opacity = 88);
+            /*INNER ELEMENTS MUST NOT BREAK THIS ELEMENTS BOUNDARIES*/
+            /*All filters must be placed together*/
         }
 
             .form-body .input-cell {
                 margin: 20px 0;
-            } 
+            }
+
             .form-body .input-des {
-                display:inline-block;
-                width:65px;
+                display: inline-block;
+                width: 65px;
             }
+
             .form-body .input-center {
-                display:inline-block; 
+                display: inline-block;
             }
-            .form-body .input-center input{ 
-                width:170px;
-            }
+
+                .form-body .input-center input {
+                    width: 170px;
+                }
 
             .form-body .errorMsg {
                 font-size: 10px;
@@ -48,6 +65,7 @@
                 float: right;
             }
     </style>
+
 }
 <div class="form-body" id="form-body">
     <div class="head">注册</div>
@@ -58,7 +76,7 @@
                     <div class="input-des">
                         <label>用户名</label>
                     </div>
-                    <div class="input-center"> 
+                    <div class="input-center">
                         <input type="text" id="userName" name="UserName" />
                     </div>
                 </div>
@@ -66,7 +84,7 @@
                     <div class="input-des">
                         <label>密码</label>
                     </div>
-                    <div class="input-center"> 
+                    <div class="input-center">
                         <input type="password" id="password" name="Password" />
                     </div>
                 </div>
@@ -74,7 +92,7 @@
                     <div class="input-des">
                         <label>确认密码</label>
                     </div>
-                    <div class="input-center"> 
+                    <div class="input-center">
                         <input type="password" id="comfirmPassword" name="ComfirmPassword" />
                     </div>
                 </div>
@@ -158,7 +176,7 @@
                     }
                 });
             }
-          
+
         }
     </script>
 }

@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BOModel\Report_Default_BO.cs" />
+    <Compile Include="BOModel\Report_DefaultBO.cs" />
     <Compile Include="DataBaseAttribute\TableAttribute.cs" />
     <Compile Include="DBModel\Account_ReportGroup_Mapping.cs" />
     <Compile Include="DBModel\Account.cs" />
@@ -59,6 +59,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DBModel\ModelSql\account.sql" />
+    <Content Include="DBModel\ModelSql\account_reportgroup_mapping.sql" />
+    <Content Include="DBModel\ModelSql\account_resourcegroup_mapping.sql" />
+    <Content Include="DBModel\ModelSql\resource.sql" />
+    <Content Include="DBModel\ModelSql\resourcegroup.sql" />
+    <Content Include="DBModel\ModelSql\tc_reportgroup.sql" />
     <Content Include="DBModel\ModelSql\tc_report_data.sql" />
     <Content Include="DBModel\ModelSql\tc_report_default.sql" />
     <Content Include="DBModel\ModelSql\tc_report_default_preworkcontent.sql" />

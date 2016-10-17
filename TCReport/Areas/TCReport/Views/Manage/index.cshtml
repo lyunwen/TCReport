@@ -1,6 +1,26 @@
 ﻿@{
     Layout = "~/Views/Shared/_inner_layout.cshtml";
-} 
+}
+@section head{
+    <style>
+        .table-TCReport {
+            width: 100%;
+        }
+
+            .table-TCReport td, .table-TCReport th {
+                border: 1px dashed #eaeaea;
+                text-align: center;
+            }
+
+                .table-TCReport td textarea {
+                    width: 200px;
+                }
+
+                .table-TCReport td input {
+                    width: 80px;
+                }
+    </style>
+}
 @section filterForm{
     <label style="margin:10px; display:inline-block;" for="userName">用户名：<input id="userName" class="easyui-textbox" style="width:150px;"> </label>
     <label for="registerType">
@@ -12,27 +32,96 @@
             <option>ditem4</option>
             <option>eitem5</option>
         </select>
-    </label> 
+    </label>
 }
 @section filterButtom{
     <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="width:70px;display:inline-block; margin:5px;">Search</a>
     <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="width:70px;display:inline-block; margin:5px;">Clear</a>
     <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="width:70px;display:inline-block; margin:5px;">Auto</a>
+
+    <!--填写周报DIV-->
+    <div id="win" class="easyui-window" title="填写周报" style="width:1010px;height:400px;" data-options="iconCls:'icon-save',modal:true">
+        <table class="table-TCReport">
+            <thead>
+                <tr><th rowspan="2"></th><th colspan="7">工作计划<th rowspan="2">任务备注</th><th rowspan="2">领导意见</th></tr>
+                <tr><th width="110px">内容</th><th width="65px">工作量</th><th width="65px">进度</th><th width="65px">优先级</th><th width="65px">状态</th><th>备注</th><th width="80px">操作</th></tr>
+            </thead>
+            <tbody>
+                <tr style="height:50px;">
+                    <th>上周工作</th>
+                    <td></td>
+                    <td>  ccccc</td>
+                    <td>  ccccc</td>
+                    <td>  ccccc</td>
+                    <td>  ccccc</td>
+                    <td>  ccccc</td>
+                    <td><a href="##">作废</a> | <a href="##">已完成</a></td>
+                    <td>XXXX</td>
+                    <td>XXXX</td>
+                </tr>
+                <tr class="thisWeekTr">
+                    <th rowspan="3" id="thisWeekTh">本周工作</th>
+                    <td colspan="9" id="noDutyTd">未添加本周任务</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td><textarea id="contentAdd" rows="3" class="easyui-validatebox" required></textarea></td>
+                    <td>
+                        <input id="needDayAdd" style="width:30px;" class="easyui-numberbox easyui-validatebox" precision="0" max="30" required="required" />天
+                    </td>
+                    <td>
+                        <input id="progressAdd" style="width:40px;" class="easyui-numberbox easyui-validatebox" precision="0" max="100" required="required" />%
+                    </td>
+                    <td>
+                        <select id="levelAdd" class="easyui-combobox easyui-validatebox" required="required">
+                            <option value="1">轻松</option>
+                            <option value="2" selected>一般</option>
+                            <option value="3">重要</option>
+                            <option value="4">紧急</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="stateAdd" class="easyui-combobox">
+                            <option>未执行</option>
+                            <option selected>本周启动</option>
+                            <option>执行中</option>
+                            <option>已完成</option>
+                            <option>作废</option>
+                        </select>
+                    </td>
+                    <td><textarea rows="3" id="remarkAdd"></textarea></td>
+                    <td><a href="###" id="AddDuty">添加本周任务</a></td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <th colspan="10">
+                        <input type="button" value="保存" />
+                        <input type="button" onclick="Submit()" value="提交" />
+                        <i style="color:#cbcaca;font-size:10px;font-weight: 100; float:right;">提交后无法进行修改,本周周报会在本周末自动提交。</i>
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
 }
 @section foot{
     <script>
         $(function () {
+            IndexInit();
+            //datagrid
             $("#defaultDatagrid").datagrid({
                 toolbar: [{
                     id: 'add',
                     text: '填写周报',
                     iconCls: 'icon-add',
-                    handler: function () { alert('add') }
+                    handler: function () { $('#win').window('open'); }
                 }, '-', {
                     text: 'Cut',
-                    iconCls: 'icon-cut', 
+                    iconCls: 'icon-cut',
                     handler: function () {
-                        $('#add').linkbutton('disable'); 
+                        $('#add').linkbutton('disable');
                     }
                 }, '-', {
                     text: 'Save',
@@ -57,13 +146,104 @@
                 method: 'get',
                 pagination: true,
                 onSelect: function (index, row) {
-                     
+
                 },
-                onUnselectAll:function(){
+                onUnselectAll: function () {
                     $('#add').linkbutton('disable');
                 },
                 height: '100%'
             });
         });
+        function FillAddInfo(contentAdd, needDayAdd, progressAdd, levelAdd, stateAdd, remarkAdd) {
+            if (contentAdd) {
+                $("#contentAdd").val(contentAdd);
+            }
+            if (needDayAdd) {
+                $("#needDayAdd").val(needDayAdd);
+            }
+            if (progressAdd) {
+                $("#progressAdd").val(progressAdd);
+            }
+            if (levelAdd) {
+                $("#levelAdd").val(levelAdd);
+            }
+            if (stateAdd) {
+                $("#stateAdd").val(stateAdd);
+            }
+            if (remarkAdd) {
+                $("#remarkAdd").val(remarkAdd);
+            }
+        }
+        function AddDutyValidate() {
+
+        }
+        function AddInfoActInit() {
+            $(".AddInfoDel").unbind().bind("click", function () {
+                $(this).parent().parent().remove();
+            });
+        }
+        function AddDuty() {
+            $("#AddDuty").unbind();
+            $("#noDutyTd").hide();
+            var tr = "<tr class='thisWeekDuty'>";
+            tr += "<td data-value=" + $("#contentAdd").val() + ">" + $("#contentAdd").val() + "</td>";
+            tr += "<td data-value=" + $("#needDayAdd").val() + ">" + $("#needDayAdd").val() + "</td>";
+            tr += "<td data-value=" + $("#progressAdd").val() + ">" + $("#progressAdd").val() + "</td>";
+            tr += "<td data-value=" + $("#levelAdd").combobox('getValue') + ">" + $("#levelAdd").combobox('getText') + "</td>";
+            tr += "<td data-value=" + $("#stateAdd").combobox('getValue') + ">" + $("#stateAdd").combobox('getText') + "</td>";
+            tr += "<td data-value=" + $("#remarkAdd").val() + ">" + $("#remarkAdd").val() + "</td>";
+            tr += "<td><a href='##' class='AddInfoDel'>删除</a> | <a href='##'>编辑</a></td>";
+            tr += "<td> </td>";
+            tr += "<td></td>";
+            tr += "</tr>";
+            $(".table-TCReport tbody").append(tr);
+            //合并【本周工作】单元格
+            var $rowspan = 1;
+            if ($(".thisWeekDuty").length > 0) {
+                $rowspan = $(".thisWeekDuty").length + 1;
+                $("#noDutyTd").hide();
+            } else {
+                $("#noDutyTd").show();
+            }
+            $("#thisWeekTh").attr("rowspan", $rowspan);
+            AddInfoActInit();
+            FillAddInfo();
+            $("#AddDuty").bind("click", function () { AddDuty(); });
+        }
+        function IndexInit() {
+            $("#AddDuty").bind("click", function () { AddDuty(); });
+            $('#win').window('close');
+        }
+
+        function ToJsData() {
+            var data = {}; 
+            var contents = new Array();
+            var sum = $(".thisWeekDuty").length;
+            if (sum > 0) {
+                for (var i = 0; i < sum; i++) {
+                    data["workContents[" + i + "].Content"] = $(".thisWeekDuty").eq(i).children().eq(0).attr("data-value");
+                    data["workContents[" + i + "].NeedDay"] = $(".thisWeekDuty").eq(i).children().eq(1).attr("data-value");
+                    data["workContents[" + i + "].Progress"] = $(".thisWeekDuty").eq(i).children().eq(2).attr("data-value");
+                    data["workContents[" + i + "].Level"] = $(".thisWeekDuty").eq(i).children().eq(3).attr("data-value");
+                    data["workContents[" + i + "].State"] = $(".thisWeekDuty").eq(i).children().eq(4).attr("data-value");
+                    data["workContents[" + i + "].Remark"] = $(".thisWeekDuty").eq(i).children().eq(5).attr("data-value");
+                }
+            }
+            return data;
+        }
+
+        function Submit() {
+            var data = ToJsData();
+
+            $.ajax({
+                url: "/TCReport/Manage/Add",
+                data: data,
+                type: "POST",
+                dataType: "json",
+                success: function (e) {
+
+                }
+            });
+        }
     </script>
 }

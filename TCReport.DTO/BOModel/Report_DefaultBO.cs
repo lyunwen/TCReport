@@ -82,6 +82,5 @@ namespace TCReport.DTO.BOModel
         #endregion
 
         public IList<Report_Default_WorkContent> WorkContents { get; set; }
-        public IList<Report_Default_PreWorkContent> PreWorkContents { get; set; }
     }
 }

@@ -10,18 +10,18 @@ Target Server Type    : MYSQL
 Target Server Version : 50712
 File Encoding         : 65001
 
-Date: 2016-10-13 22:59:02
+Date: 2016-10-17 12:49:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `tc_report_default_workcontent`
+-- Table structure for `tc_report_default_preworkcontent`
 -- ----------------------------
 DROP TABLE IF EXISTS `tc_report_default_preworkcontent`;
 CREATE TABLE `tc_report_default_preworkcontent` (
   `ID` bigint(20) NOT NULL AUTO_INCREMENT,
-  `Report_DefaultID` bigint(20) NOT NULL,
+  `Report_DefaultUUID` varchar(16) NOT NULL,
   `Content` varchar(255) NOT NULL,
   `NeedDay` tinyint(4) NOT NULL,
   `Progress` decimal(3,2) NOT NULL COMMENT '进度',
@@ -33,5 +33,5 @@ CREATE TABLE `tc_report_default_preworkcontent` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
--- Records of tc_report_default_workcontent
+-- Records of tc_report_default_preworkcontent
 -- ----------------------------

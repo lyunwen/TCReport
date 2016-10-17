@@ -6,10 +6,24 @@
         .form-body {
             font-size: 14px;
             position: absolute;
-            border: 2px solid #dcd3d3;
             width: 300px;
             padding: 20px;
             border-radius: 3px 4px;
+            border: 1px solid #d0d0d0;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            /*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
+            -moz-box-shadow: 0px 0px 1px #000000;
+            -webkit-box-shadow: 0px 0px 1px #000000;
+            box-shadow: 0px 0px 1px #000000;
+            /*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
+            opacity: 0.88;
+            -ms-filter: progid: DXImageTransform.Microsoft.Alpha(Opacity = 88);
+            /*-ms-filter must come before filter*/
+            filter: alpha(opacity = 88);
+            /*INNER ELEMENTS MUST NOT BREAK THIS ELEMENTS BOUNDARIES*/
+            /*All filters must be placed together*/
         }
 
             .form-body .input-cell {
@@ -94,11 +108,11 @@
             var result = true;
             if ($("#userName").val() == "") {
                 result = false;
-                $(".errorMsg").text($(".errorMsg").text()+" 用户名为空").css("color", "#ff5454").show(); 
+                $(".errorMsg").text($(".errorMsg").text() + " 用户名为空").css("color", "#ff5454").show();
             }
             if ($("#password").val() == "") {
-                result = false; 
-                $(".errorMsg").text($(".errorMsg").text()+ " 密码为空").css("color", "#ff5454").show();
+                result = false;
+                $(".errorMsg").text($(".errorMsg").text() + " 密码为空").css("color", "#ff5454").show();
             }
             return result;
         }
@@ -136,7 +150,7 @@
                     }
                 });
             }
-          
+
         }
     </script>
 }

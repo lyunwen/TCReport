@@ -36,11 +36,10 @@ namespace TCReport.Dal.Aspects.Report
             sqlCmd.Append(" WHERE tb_report.ID=@ID");
             using (var conn = MDBQuery.Open())
             {
-                result = conn.Query<Report_DefaultBO, Report_Default_WorkContent, Report_Default_PreWorkContent, Report_DefaultBO>(sqlCmd.ToString(), (report, workContent, preWorkContent) =>
+                result = conn.Query<Report_DefaultBO, Report_Default_WorkContent, Report_DefaultBO>(sqlCmd.ToString(), (report, workContent) =>
                   {
                       if (report == null)
                           return null;
-                      report.PreWorkContents.Add(preWorkContent);
                       report.WorkContents.Add(workContent);
                       return report;
                   }, new { ID = id }).FirstOrDefault();
@@ -50,7 +49,7 @@ namespace TCReport.Dal.Aspects.Report
 
         int IReportBaseAct.Report_Default_BOInsert(Report_DefaultBO report)
         {
-            int result;
+            int result = 0;
             if (report == null)
                 return 0;
             report.UUID = Guid.NewGuid().ToString();
@@ -58,28 +57,16 @@ namespace TCReport.Dal.Aspects.Report
             reportSql.Append("INSERT INTO tc_report_default  ");
             reportSql.Append("(UUID ,CreateTime ,CreateBy ,BeginDate ,EndDate ,Remark ,LeaderRemark ) ");
             reportSql.Append(" VALUES ");
-            reportSql.Append("(@UUID,@CreateTime,@CreateBy,@BeginDate,@EndDate,@Remark,@LeaderRemark");
-            StringBuilder preWorkContentSql = new StringBuilder();
-            preWorkContentSql.Append("INSERT INTO tc_report_default_preworkcontent");
-            preWorkContentSql.Append(" (Report_DefaultUUID ,Content ,NeedDay ,Progress ,Level ,State ,Remark ,LeaderRemark ) ");
-            preWorkContentSql.Append(" VALUES ");
-            preWorkContentSql.Append(" (@Report_DefaultUUID,@Content,@NeedDay,@Progress,@Level,@State,@Remark,@LeaderRemark)");
+            reportSql.Append("(@UUID,@CreateTime,@CreateBy,@BeginDate,@EndDate,@Remark,@LeaderRemark)");
             StringBuilder workContentSql = new StringBuilder();
-            preWorkContentSql.Append("INSERT INTO tc_report_default_workcontent");
-            preWorkContentSql.Append(" (Report_DefaultUUID ,Content ,NeedDay ,Progress ,Level ,State ,Remark ,LeaderRemark )");
-            preWorkContentSql.Append(" VALUES ");
-            preWorkContentSql.Append(" (@Report_DefaultUUID,@Content,NeedDay,@Progress,@Level,@State,@Remark,@LeaderRemark)");
+            workContentSql.Append("INSERT INTO tc_report_default_workcontent");
+            workContentSql.Append(" (Report_DefaultUUID ,Content ,NeedDay ,Progress ,Level ,State ,Remark ,LeaderRemark )");
+            workContentSql.Append(" VALUES ");
+            workContentSql.Append(" (@Report_DefaultUUID,@Content,NeedDay,@Progress,@Level,@State,@Remark,@LeaderRemark)");
             using (var conn = MDBCommander.Open())
-            {
+            { 
+                result = conn.Execute(reportSql.ToString(), report); 
                 result = conn.Execute(reportSql.ToString(), report);
-                if (report.PreWorkContents != null)
-                {
-                    foreach (var item in report.PreWorkContents)
-                    {
-                        item.Report_DefaultUUID = report.UUID;
-                        result += conn.Execute(preWorkContentSql.ToString(), item);
-                    }
-                }
                 if (report.WorkContents != null)
                 {
                     foreach (var item in report.WorkContents)
