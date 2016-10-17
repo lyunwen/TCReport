@@ -2,7 +2,7 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Data;
-using TCReport.DTO.DataBaseAttribute;
+using TCReport.DTO.AutoCodeAttribute;
 namespace TCReport.DTO.DBModel
 {
     [Table("account_reportgroup_mapping")]

@@ -40,9 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoCodeAttribute\AutoCreateAttribute.cs" />
+    <Compile Include="AutoCodeAttribute\AutoSql.cs" />
+    <Compile Include="AutoCodeAttribute\NOInsertAttribute.cs" />
     <Compile Include="BOModel\Report_DefaultBO.cs" />
-    <Compile Include="DataBaseAttribute\KeyAttribute.cs" />
-    <Compile Include="DataBaseAttribute\TableAttribute.cs" />
+    <Compile Include="AutoCodeAttribute\KeyAttribute.cs" />
+    <Compile Include="AutoCodeAttribute\TableAttribute.cs" />
     <Compile Include="DBModel\Account_ReportGroup_Mapping.cs" />
     <Compile Include="DBModel\Account.cs" />
     <Compile Include="DBModel\Account_ResourceGroup_Mapping.cs" />

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TCReport.DTO.DataBaseAttribute
+namespace TCReport.DTO.AutoCodeAttribute
 {
     public class TableAttribute : Attribute
     {
@@ -15,7 +15,7 @@ namespace TCReport.DTO.DataBaseAttribute
         }
         public TableAttribute(string name)
         {
-            _name = Name;
+            _name = name;
         }
     }
 }

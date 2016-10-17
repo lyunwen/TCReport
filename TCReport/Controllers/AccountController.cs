@@ -17,6 +17,7 @@ namespace TCReport.Controllers
         [HttpGet]
         public ActionResult SignIn()
         {
+            var foo = _accountBaseAct.AccountExist(1);
             return View();
         }
         [HttpPost]

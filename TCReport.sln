@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCReport.Dal", "TCReport.Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCReport.DTO", "TCReport.DTO\TCReport.DTO.csproj", "{B6890C0C-F98A-4672-A478-C99FE577F9E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCReport.AutoCode", "TCReport.AutoCode\TCReport.AutoCode.csproj", "{5EB49280-1D17-4E9A-8700-B6B1B831BCAA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{B6890C0C-F98A-4672-A478-C99FE577F9E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6890C0C-F98A-4672-A478-C99FE577F9E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6890C0C-F98A-4672-A478-C99FE577F9E7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5EB49280-1D17-4E9A-8700-B6B1B831BCAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5EB49280-1D17-4E9A-8700-B6B1B831BCAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5EB49280-1D17-4E9A-8700-B6B1B831BCAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5EB49280-1D17-4E9A-8700-B6B1B831BCAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
