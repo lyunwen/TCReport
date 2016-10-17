@@ -10,6 +10,10 @@ namespace TCReport.AutoSql
 {
     public static class AutoSql<T> where T : class
     {
+        public static string ToUpdateSql()
+        {
+            throw new NotImplementedException();
+        }
         public static string ToInsertSql()
         {
             Type entityType = typeof(T);
@@ -87,7 +91,7 @@ namespace TCReport.AutoSql
                 var keyAttr = item.GetCustomAttribute(typeof(KeyAttribute));
                 if (keyAttr != null)
                 {
-                    return string.Format("SELECT {0} FROM {1} WHERE 1=1 AND {2}", item.Name, tableName, wheres);
+                    return string.Format("SELECT {0} FROM {1} WHERE {2}", item.Name, tableName, wheres);
                 }
             }
             throw new ArgumentException("No key");

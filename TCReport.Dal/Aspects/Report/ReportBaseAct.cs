@@ -53,20 +53,11 @@ namespace TCReport.Dal.Aspects.Report
             if (report == null)
                 return 0;
             report.UUID = Guid.NewGuid().ToString();
-            StringBuilder reportSql = new StringBuilder();
-            reportSql.Append("INSERT INTO tc_report_default  ");
-            reportSql.Append("(UUID ,CreateTime ,CreateBy ,BeginDate ,EndDate ,Remark ,LeaderRemark ) ");
-            reportSql.Append(" VALUES ");
-            reportSql.Append("(@UUID,@CreateTime,@CreateBy,@BeginDate,@EndDate,@Remark,@LeaderRemark)");
-            StringBuilder workContentSql = new StringBuilder();
-            workContentSql.Append("INSERT INTO tc_report_default_workcontent");
-            workContentSql.Append(" (Report_DefaultUUID ,Content ,NeedDay ,Progress ,Level ,State ,Remark ,LeaderRemark )");
-            workContentSql.Append(" VALUES ");
-            workContentSql.Append(" (@Report_DefaultUUID,@Content,NeedDay,@Progress,@Level,@State,@Remark,@LeaderRemark)");
+            string reportSql = AutoSql.AutoSql<Report_Default>.ToInsertSql(); 
+            string workContentSql = AutoSql.AutoSql<Report_Default_WorkContent>.ToInsertSql();
             using (var conn = MDBCommander.Open())
-            { 
-                result = conn.Execute(reportSql.ToString(), report); 
-                result = conn.Execute(reportSql.ToString(), report);
+            {
+                result = conn.Execute(reportSql, report);  
                 if (report.WorkContents != null)
                 {
                     foreach (var item in report.WorkContents)
