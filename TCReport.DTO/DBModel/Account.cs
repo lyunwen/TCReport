@@ -2,7 +2,8 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Data;
-using TCReport.DTO.AutoCodeAttribute;
+using TCReport.DTO.AutoSql.AutoCodeAttribute;
+
 namespace TCReport.DTO.DBModel
 {
     [Table("account")]
@@ -12,7 +13,7 @@ namespace TCReport.DTO.DBModel
         /// auto_increment
         /// </summary>		
         private long _id;
-        [AutoCodeAttribute.AutoCreate,Key]
+        [AutoCreate,Key]
         public long ID
         {
             get { return _id; }

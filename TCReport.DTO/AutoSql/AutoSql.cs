@@ -4,9 +4,9 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using TCReport.DTO.AutoCodeAttribute;
+using TCReport.DTO.AutoSql.AutoCodeAttribute;
 
-namespace TCReport.DTO
+namespace TCReport.AutoSql
 {
     public static class AutoSql<T> where T : class
     {

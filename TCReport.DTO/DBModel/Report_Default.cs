@@ -1,8 +1,9 @@
-﻿using System; 
+﻿using System;
 using System.Text;
-using System.Collections.Generic; 
+using System.Collections.Generic;
 using System.Data;
-using TCReport.DTO.AutoCodeAttribute;
+using TCReport.DTO.AutoSql.AutoCodeAttribute;
+
 namespace TCReport.DTO.DBModel
 {
 	 	//tc_report_default
