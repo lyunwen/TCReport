@@ -75,8 +75,8 @@
     <Content Include="DBModel\ModelSql\tc_report_instance.sql" />
     <Content Include="DBModel\ModelSql\tc_report_property.sql" />
     <Content Include="DBModel\ModelSql\tc_report_type.sql" />
-    <Content Include="ModelDalCT.txt" />
-    <Content Include="ModelCT.txt" />
+    <Content Include="基础sql生成模板.txt" />
+    <Content Include="数据库实体生成模板.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
