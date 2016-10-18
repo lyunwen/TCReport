@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TCReport.Dal
 {
-    public class RDBQuery
+    internal class RDBQuery
     {
     }
 }

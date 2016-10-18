@@ -5,7 +5,7 @@ using System.Data;
 
 namespace TCReport.Dal
 {
-    public class MDBQuery
+    internal class MDBQuery
     {
         //配置mysql 数据源
         private const string _SqlConnectionString = @"Server=localhost;Port=3306;Database=tcreport;Uid=root;Pwd=;";

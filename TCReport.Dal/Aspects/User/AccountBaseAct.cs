@@ -16,7 +16,9 @@ namespace TCReport.Dal.Aspects.User
         Account AccountGetUserName(string userName);
 
         int RegisterAccountByUserName(string userName, string password, string ResgiterIdentify);
-
+        int RegisterAccountByMobile(string mobile, string password, string ResgiterIdentify);
+        int RegisterAccountByEmail(string email, string password, string ResgiterIdentify);
+        int RegisterAccountByWechatOpenId(string wechatOpenID,string ResgiterIdentify);
     }
 
     public class AccountBaseAct : IAccountBaseAct
@@ -26,6 +28,7 @@ namespace TCReport.Dal.Aspects.User
             string sqlCmd = AutoSql<Account>.ToExistSql(string.Format("ID=@ID"));
             return MDBQuery.OpenAndQuery<int>(sqlCmd, new { ID = id }).Count() > 0;
         }
+
         Account IAccountBaseAct.AccountGetByID(long id)
         {
             string sqlCmd = AutoSql<Account>.ToGetSql("ID=@ID");
@@ -34,8 +37,45 @@ namespace TCReport.Dal.Aspects.User
 
         Account IAccountBaseAct.AccountGetUserName(string userName)
         {
-            string sqlCmd = AutoSql<Account>.ToGetSql("UserName=@UserName");
+            string sqlCmd = AutoSql<Account>.ToGetSql("UserName=@UserName AND UserNameVerify=1");
             return MDBQuery.OpenAndQuery<Account>(sqlCmd, new { UserName = userName }).FirstOrDefault();
+        }
+
+        int IAccountBaseAct.RegisterAccountByEmail(string email, string password, string ResgiterIdentify)
+        {
+            var foo = MDBQuery.OpenAndQuery<object>(AutoSql<Account>.ToExistSql("Email=@Email AND EmailVerify=1"), new { Email = email });
+            if (foo.Count() > 0)
+            {
+                return -1;
+            }
+            Account account = new Account
+            {
+                Role = 1,
+                Password = password,
+                PasswordVerify = false,
+                UserName = null,
+                UserNameVerify = false,
+                Mobile = null,
+                MobileVerify = false,
+                WechatOpenId = null,
+                WechatOpenIdVerify = false,
+                Email = email,
+                EmailVerify = true,
+                CreateTime = DateTime.Now,
+                ResgiterIdentify = ResgiterIdentify
+            };
+            string sqlCmd = AutoSql<Account>.ToInsertSql();
+            return MDBCommander.OpenAndExecute(sqlCmd, account); 
+        }
+
+        int IAccountBaseAct.RegisterAccountByMobile(string mobile, string password, string ResgiterIdentify)
+        {
+            var foo = MDBQuery.OpenAndQuery<object>(AutoSql<Account>.ToExistSql("Mobile=@Mobile AND MobileVerify=1"), new { Mobile = mobile });
+            if (foo.Count() > 0)
+            {
+                return -1;
+            }
+            throw new NotImplementedException();
         }
 
         int IAccountBaseAct.RegisterAccountByUserName(string userName, string password, string ResgiterIdentify)
@@ -63,6 +103,16 @@ namespace TCReport.Dal.Aspects.User
             };
             string sqlCmd = AutoSql<Account>.ToInsertSql();
             return MDBCommander.OpenAndExecute(sqlCmd, account);
+        }
+
+        int IAccountBaseAct.RegisterAccountByWechatOpenId(string weChatOpenID, string ResgiterIdentify)
+        {
+            var foo = MDBQuery.OpenAndQuery<object>(AutoSql<Account>.ToExistSql("WechatOpenId=@WechatOpenId AND WechatOpenIdVerify=1"), new { WechatOpenId = weChatOpenID });
+            if (foo.Count() > 0)
+            {
+                return -1;
+            }
+            throw new NotImplementedException();
         }
     }
 }
