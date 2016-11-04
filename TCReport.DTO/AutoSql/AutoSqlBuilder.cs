@@ -8,13 +8,13 @@ using TCReport.DTO.AutoSql.AutoCodeAttribute;
 
 namespace TCReport.AutoSql
 {
-    public static class AutoSql<T> where T : class
+    public static class AutoSqlBuilder<T> where T : class
     {
         public static string ToUpdateSql()
         {
             throw new NotImplementedException();
         }
-        public static string ToInsertSql()
+        public static string BuildInsertSql()
         {
             Type entityType = typeof(T);
             StringBuilder entityInsertSql = new StringBuilder();
@@ -68,7 +68,7 @@ namespace TCReport.AutoSql
             entityInsertSql.Append(")");
             return entityInsertSql.ToString();
         }
-        public static string ToExistSql(string wheres)
+        public static string BuildExistSql(string wheres)
         {
             Type entityType = typeof(T);
 
@@ -96,7 +96,7 @@ namespace TCReport.AutoSql
             }
             throw new ArgumentException("No key");
         }
-        public static string ToGetSql(string wheres)
+        public static string BuildGetSql(string wheres)
         {
             Type entityType = typeof(T);
             string tableName;

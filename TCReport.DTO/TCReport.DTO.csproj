@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoSql\AutoCodeAttribute\AutoCreateAttribute.cs" />
-    <Compile Include="AutoSql\AutoSql.cs" />
+    <Compile Include="AutoSql\AutoSqlBuilder.cs" />
     <Compile Include="AutoSql\AutoCodeAttribute\NOInsertAttribute.cs" />
     <Compile Include="BOModel\Report_DefaultBO.cs" />
     <Compile Include="AutoSql\AutoCodeAttribute\KeyAttribute.cs" />
