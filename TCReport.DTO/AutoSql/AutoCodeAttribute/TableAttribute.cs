@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TCReport.DTO.AutoSql.AutoCodeAttribute
 {
+    [AttributeUsage(AttributeTargets.Class,AllowMultiple =false,Inherited =false)]
     public class TableAttribute : Attribute
     {
         private readonly string _name;
