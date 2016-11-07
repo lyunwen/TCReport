@@ -12,7 +12,7 @@ namespace TCReport.DTO.DBModel
         /// Type[bigint(20)] Nullable[False]
         /// </summary>
         [Key]
-        [AutoCreate]
+        [AutoIncrement]
         public long ID { get; set; }
 
         /// <summary>

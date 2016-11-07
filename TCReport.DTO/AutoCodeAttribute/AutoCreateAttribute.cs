@@ -10,7 +10,7 @@ namespace TCReport.DTO.AutoCodeAttribute
     /// 自增特性
     /// </summary>
     [AttributeUsage(AttributeTargets.Property,AllowMultiple =false,Inherited =true)]
-    public class AutoCreateAttribute : NOInsertAttribute
+    public class AutoIncrementAttribute : NOInsertAttribute
     {
 
     }
