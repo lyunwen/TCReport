@@ -114,6 +114,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\_references.js" />
+    <Content Include="wwwroot\Base\base.css" />
     <Content Include="wwwroot\easyUI\demo\accordion\datagrid_data1.json" />
     <Content Include="wwwroot\easyUI\demo\combobox\combobox_data1.json" />
     <Content Include="wwwroot\easyUI\demo\combobox\combobox_data2.json" />
