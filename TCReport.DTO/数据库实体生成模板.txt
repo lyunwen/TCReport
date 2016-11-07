@@ -15,19 +15,15 @@ namespace TCReport.DTO.DBModel
  	//<#= host.TableDescription #>
 	<# } #>
 	[Table("<#= host.GetModelClass(host.TableName) #>")]
-	public class <#= host.GetModelClass(host.TableName) #>
+	public class db_<#= host.GetModelClass(host.TableName) #>
 	{   
       	<# foreach (ColumnInfo c in host.Fieldlist)
 		{ #>/// <summary>
-		/// <#= string.IsNullOrEmpty(c.Description) ? c.ColumnName : c.Description #> 
-        /// </summary>		
-		private <#= CodeCommon.DbTypeToCS(c.TypeName) #> _<#= c.ColumnName.ToString().ToLower() #>;
-		<#= c.IsPrimaryKey ?"[Key] ":""#><#= c.Description=="auto_increment"?"[AutoCreate]":""#>
-        public <#= CodeCommon.DbTypeToCS(c.TypeName) #> <#= c.ColumnName #>
-        {
-            get{ return _<#= c.ColumnName.ToString().ToLower()#>; }
-            set{ _<#= c.ColumnName.ToString().ToLower() #> = value; }
-        }
-		<# } #> 
+		///<#= string.IsNullOrEmpty(c.DefaultVal) ?"":" DefaultVal["+ c.DefaultVal+"]" #><#= string.IsNullOrEmpty(c.ColumnName) ?"":" ColumnName["+ c.ColumnName+"]"#>
+        /// </summary>
+		<# if(c.IsPrimaryKey) {#>[Key]<# } #><# if(c.Description=="auto_increment") {#>[AutoCreate]<# } #>
+public <#= CodeCommon.DbTypeToCS(c.TypeName) #> <#= c.ColumnName #>{get;set;}
+
+		<# } #>
 	}
 }
