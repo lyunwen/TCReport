@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using TCReport.DTO.AutoSql.AutoCodeAttribute;
+using TCReport.DTO.AutoCodeAttribute;
 
 namespace TCReport.AutoSql
 {
