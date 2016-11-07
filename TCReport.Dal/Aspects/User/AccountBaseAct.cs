@@ -25,25 +25,25 @@ namespace TCReport.Dal.Aspects.User
     {
         bool IAccountBaseAct.AccountExist(long id)
         {
-            string sqlCmd = AutoSql<Account>.ToExistSql(string.Format("ID=@ID"));
+            string sqlCmd = AutoSqlBuilder<Account>.BuildExistSql(string.Format("ID=@ID"));
             return MDBQuery.OpenAndQuery<int>(sqlCmd, new { ID = id }).Count() > 0;
         }
 
         Account IAccountBaseAct.AccountGetByID(long id)
         {
-            string sqlCmd = AutoSql<Account>.ToGetSql("ID=@ID");
+            string sqlCmd = AutoSqlBuilder<Account>.BuildGetSql("ID=@ID");
             return MDBQuery.OpenAndQuery<Account>(sqlCmd, new { ID = id }).FirstOrDefault();
         }
 
         Account IAccountBaseAct.AccountGetUserName(string userName)
         {
-            string sqlCmd = AutoSql<Account>.ToGetSql("UserName=@UserName AND UserNameVerify=1");
+            string sqlCmd = AutoSqlBuilder<Account>.BuildGetSql("UserName=@UserName AND UserNameVerify=1");
             return MDBQuery.OpenAndQuery<Account>(sqlCmd, new { UserName = userName }).FirstOrDefault();
         }
 
         int IAccountBaseAct.RegisterAccountByEmail(string email, string password, string ResgiterIdentify)
         {
-            var foo = MDBQuery.OpenAndQuery<object>(AutoSql<Account>.ToExistSql("Email=@Email AND EmailVerify=1"), new { Email = email });
+            var foo = MDBQuery.OpenAndQuery<object>(AutoSqlBuilder<Account>.BuildExistSql("Email=@Email AND EmailVerify=1"), new { Email = email });
             if (foo.Count() > 0)
             {
                 return -1;
@@ -64,13 +64,13 @@ namespace TCReport.Dal.Aspects.User
                 CreateTime = DateTime.Now,
                 ResgiterIdentify = ResgiterIdentify
             };
-            string sqlCmd = AutoSql<Account>.ToInsertSql();
+            string sqlCmd = AutoSqlBuilder<Account>.BuildInsertSql();
             return MDBCommander.OpenAndExecute(sqlCmd, account); 
         }
 
         int IAccountBaseAct.RegisterAccountByMobile(string mobile, string password, string ResgiterIdentify)
         {
-            var foo = MDBQuery.OpenAndQuery<object>(AutoSql<Account>.ToExistSql("Mobile=@Mobile AND MobileVerify=1"), new { Mobile = mobile });
+            var foo = MDBQuery.OpenAndQuery<object>(AutoSqlBuilder<Account>.BuildExistSql("Mobile=@Mobile AND MobileVerify=1"), new { Mobile = mobile });
             if (foo.Count() > 0)
             {
                 return -1;
@@ -80,7 +80,7 @@ namespace TCReport.Dal.Aspects.User
 
         int IAccountBaseAct.RegisterAccountByUserName(string userName, string password, string ResgiterIdentify)
         {
-            var foo = MDBQuery.OpenAndQuery<object>(AutoSql<Account>.ToExistSql("UserName=@UserName AND UserNameVerify=1"), new { UserName = userName });
+            var foo = MDBQuery.OpenAndQuery<object>(AutoSqlBuilder<Account>.BuildExistSql("UserName=@UserName AND UserNameVerify=1"), new { UserName = userName });
             if (foo.Count() > 0)
             {
                 return -1;
@@ -101,13 +101,13 @@ namespace TCReport.Dal.Aspects.User
                 CreateTime = DateTime.Now,
                 ResgiterIdentify = ResgiterIdentify
             };
-            string sqlCmd = AutoSql<Account>.ToInsertSql();
+            string sqlCmd = AutoSqlBuilder<Account>.BuildInsertSql();
             return MDBCommander.OpenAndExecute(sqlCmd, account);
         }
 
         int IAccountBaseAct.RegisterAccountByWechatOpenId(string weChatOpenID, string ResgiterIdentify)
         {
-            var foo = MDBQuery.OpenAndQuery<object>(AutoSql<Account>.ToExistSql("WechatOpenId=@WechatOpenId AND WechatOpenIdVerify=1"), new { WechatOpenId = weChatOpenID });
+            var foo = MDBQuery.OpenAndQuery<object>(AutoSqlBuilder<Account>.BuildExistSql("WechatOpenId=@WechatOpenId AND WechatOpenIdVerify=1"), new { WechatOpenId = weChatOpenID });
             if (foo.Count() > 0)
             {
                 return -1;
