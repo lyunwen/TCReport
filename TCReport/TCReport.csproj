@@ -50,6 +50,9 @@
     <Reference Include="Autofac.Integration.Mvc">
       <HintPath>..\DllComponents\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="Maticsoft.CodeHelper">
+      <HintPath>C:\Program Files (x86)\Maticsoft\Codematic2\Maticsoft.CodeHelper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure">
       <HintPath>..\DllComponents\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -881,7 +884,7 @@
     <Compile Include="Areas\User\Controllers\UserController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Common\RemarkAttribute.cs" />
-    <Compile Include="Common\UrlAuthorizeCommponent.cs" />
+    <Compile Include="Common\UrlAuthorizehandler.cs" />
     <Compile Include="Common\WXHelper.cs" />
     <Compile Include="Config\CookieConfig.cs" />
     <Compile Include="Config\SessionConfig.cs" />

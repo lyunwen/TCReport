@@ -4,14 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TCReport.DTO.AutoSql.AutoCodeAttribute
+namespace TCReport.DTO.AutoCodeAttribute
 {
-    /// <summary>
-    /// 自增特性
-    /// </summary>
     [AttributeUsage(AttributeTargets.Property,AllowMultiple =false,Inherited =true)]
-    public class AutoCreateAttribute : NOInsertAttribute
+    public class NOInsertAttribute:Attribute
     {
-
     }
 }

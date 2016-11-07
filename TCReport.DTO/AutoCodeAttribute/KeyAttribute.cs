@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TCReport.DTO.AutoSql.AutoCodeAttribute
+namespace TCReport.DTO.AutoCodeAttribute
 {
     /// <summary>
     /// 主键特性

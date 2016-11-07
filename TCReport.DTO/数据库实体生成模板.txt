@@ -19,15 +19,15 @@ namespace TCReport.DTO.DBModel
 	{   
       	<# foreach (ColumnInfo c in host.Fieldlist)
 		{ #>/// <summary>
-		/// <#= string.IsNullOrEmpty(c.Description) ? c.ColumnName : c.Description #>
+		/// <#= string.IsNullOrEmpty(c.Description) ? c.ColumnName : c.Description #> 
         /// </summary>		
 		private <#= CodeCommon.DbTypeToCS(c.TypeName) #> _<#= c.ColumnName.ToString().ToLower() #>;
+		<#= c.IsPrimaryKey ?"[Key] ":""#><#= c.Description=="auto_increment"?"[AutoCreate]":""#>
         public <#= CodeCommon.DbTypeToCS(c.TypeName) #> <#= c.ColumnName #>
         {
             get{ return _<#= c.ColumnName.ToString().ToLower()#>; }
             set{ _<#= c.ColumnName.ToString().ToLower() #> = value; }
-        }        
+        }
 		<# } #> 
 	}
 }
-
