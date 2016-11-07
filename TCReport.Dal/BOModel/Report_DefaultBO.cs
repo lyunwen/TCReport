@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TCReport.DTO.DBModel;
 
-namespace TCReport.DTO.BOModel
+namespace TCReport.Dal.BOModel
 {
     public class Report_DefaultBO
     {

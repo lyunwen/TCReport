@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Aspects\Report\ReportBaseAct.cs" />
     <Compile Include="Aspects\User\AccountBaseAct.cs" />
+    <Compile Include="BOModel\Report_DefaultBO.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="RDBCommander.cs" />
     <Compile Include="MDBCommander.cs" />

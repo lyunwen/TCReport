@@ -28,7 +28,7 @@ namespace TCReport.Controllers
         public ActionResult Test()
         {
             var t=_accountBaseAct.AccountGetByID(1);
-            DTO.BOModel.Report_DefaultBO instance = new DTO.BOModel.Report_DefaultBO
+            Dal.BOModel.Report_DefaultBO instance = new Dal.BOModel.Report_DefaultBO
             {
                 BeginDate = DateTime.Now.Date,
                 CreateBy = LoginUser.Id,

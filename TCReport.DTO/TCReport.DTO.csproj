@@ -43,7 +43,6 @@
     <Compile Include="AutoCodeAttribute\AutoCreateAttribute.cs" />
     <Compile Include="AutoSql\AutoSqlBuilder.cs" />
     <Compile Include="AutoCodeAttribute\NOInsertAttribute.cs" />
-    <Compile Include="BOModel\Report_DefaultBO.cs" />
     <Compile Include="AutoCodeAttribute\KeyAttribute.cs" />
     <Compile Include="AutoCodeAttribute\TableAttribute.cs" />
     <Compile Include="DBModel\Account_ReportGroup_Mapping.cs" />
