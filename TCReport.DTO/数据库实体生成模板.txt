@@ -15,6 +15,7 @@ namespace TCReport.DTO.DBModel
  	//<#= host.TableDescription #>
 	<# } #>
 	[Table("<#= host.GetModelClass(host.TableName) #>")]
+	//AutoCreateTime:<#=System.DateTime.Now.ToString()#>
 	public class db_<#= host.GetModelClass(host.TableName) #>
 	{   
       	<# foreach (ColumnInfo c in host.Fieldlist)
