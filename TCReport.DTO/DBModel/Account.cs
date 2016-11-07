@@ -9,74 +9,74 @@ namespace TCReport.DTO.DBModel
     public class db_account
     {
         /// <summary>
-        /// ColumnName[ID]
+        /// Type[bigint(20)] Nullable[False]
         /// </summary>
         [Key]
         [AutoCreate]
         public long ID { get; set; }
 
         /// <summary>
-        /// ColumnName[Role]
+        /// Type[bigint(20)] Nullable[False]
         /// </summary>
         public long Role { get; set; }
 
         /// <summary>
-        /// ColumnName[Password]
+        /// Type[varchar(50)] Nullable[True]
         /// </summary>
         public string Password { get; set; }
 
         /// <summary>
-        /// DefaultVal[b'0'] ColumnName[PasswordVerify]
+        /// Type[bit] Nullable[False] DefaultVal[b'0']
         /// </summary>
         public bool PasswordVerify { get; set; }
 
         /// <summary>
-        /// ColumnName[UserName]
+        /// Type[varchar(50)] Nullable[True]
         /// </summary>
         public string UserName { get; set; }
 
         /// <summary>
-        /// DefaultVal[b'0'] ColumnName[UserNameVerify]
+        /// Type[bit] Nullable[False] DefaultVal[b'0']
         /// </summary>
         public bool UserNameVerify { get; set; }
 
         /// <summary>
-        /// ColumnName[Mobile]
+        /// Type[varchar(20)] Nullable[True]
         /// </summary>
         public string Mobile { get; set; }
 
         /// <summary>
-        /// DefaultVal[b'0'] ColumnName[MobileVerify]
+        /// Type[bit] Nullable[False] DefaultVal[b'0']
         /// </summary>
         public bool MobileVerify { get; set; }
 
         /// <summary>
-        /// ColumnName[WechatOpenId]
+        /// Type[varchar(50)] Nullable[True]
         /// </summary>
         public string WechatOpenId { get; set; }
 
         /// <summary>
-        /// DefaultVal[b'0'] ColumnName[WechatOpenIdVerify]
+        /// Type[bit] Nullable[False] DefaultVal[b'0']
         /// </summary>
         public bool WechatOpenIdVerify { get; set; }
 
         /// <summary>
-        /// ColumnName[Email]
+        /// Type[varchar(50)] Nullable[True]
         /// </summary>
         public string Email { get; set; }
 
         /// <summary>
-        /// DefaultVal[b'0'] ColumnName[EmailVerify]
+        /// Type[bit] Nullable[False] DefaultVal[b'0']
         /// </summary>
         public bool EmailVerify { get; set; }
 
         /// <summary>
-        /// ColumnName[CreateTime]
+        /// Type[datetime] Nullable[True]
         /// </summary>
         public DateTime CreateTime { get; set; }
 
         /// <summary>
-        /// DefaultVal[default] ColumnName[ResgiterIdentify]
+        /// Type[varchar(50)] Nullable[False] DefaultVal[default]
         /// </summary>
         public string ResgiterIdentify { get; set; }
 

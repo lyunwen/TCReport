@@ -19,7 +19,7 @@ namespace TCReport.DTO.DBModel
 	{   
       	<# foreach (ColumnInfo c in host.Fieldlist)
 		{ #>/// <summary>
-		///<#= string.IsNullOrEmpty(c.DefaultVal) ?"":" DefaultVal["+ c.DefaultVal+"]" #><#= string.IsNullOrEmpty(c.ColumnName) ?"":" ColumnName["+ c.ColumnName+"]"#>
+		///<#= string.IsNullOrEmpty(c.TypeName) ?"":" Type["+ c.TypeName#><#= string.IsNullOrEmpty(c.Length) ?"]":"("+ c.Length+")]"#><#= " Nullable["+ c.Nullable+"]" #><#= string.IsNullOrEmpty(c.DefaultVal) ?"":" DefaultVal["+ c.DefaultVal+"]" #>
         /// </summary>
 		<# if(c.IsPrimaryKey) {#>[Key]<# } #><# if(c.Description=="auto_increment") {#>[AutoCreate]<# } #>
 public <#= CodeCommon.DbTypeToCS(c.TypeName) #> <#= c.ColumnName #>{get;set;}
