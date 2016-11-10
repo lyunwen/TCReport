@@ -933,9 +933,9 @@
       <Project>{7ee4e575-6973-475d-bf67-ae1df0c033ea}</Project>
       <Name>TCReport.Dal</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TCReport.DTO\TCReport.DTO.csproj">
+    <ProjectReference Include="..\TCReport.DTO\TCReport.DB.csproj">
       <Project>{b6890c0c-f98a-4672-a478-c99fe577f9e7}</Project>
-      <Name>TCReport.DTO</Name>
+      <Name>TCReport.DB</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

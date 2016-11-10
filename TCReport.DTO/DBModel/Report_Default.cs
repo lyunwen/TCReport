@@ -2,9 +2,9 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Data;
-using TCReport.DTO.AutoCodeAttribute;
+using TCReport.DB.AutoCodeAttribute;
 
-namespace TCReport.DTO.DBModel
+namespace TCReport.DB.DBModel
 {
 	 	//tc_report_default
 		[Table("tc_report_default")]

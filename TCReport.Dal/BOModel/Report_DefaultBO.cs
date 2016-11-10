@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TCReport.DTO.DBModel;
+using TCReport.DB.DBModel;
 
 namespace TCReport.Dal.BOModel
 {

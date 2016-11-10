@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TCReport.AutoSql;
 using TCReport.Dal.BOModel; 
-using TCReport.DTO.DBModel;
+using TCReport.DB.DBModel;
 
 namespace TCReport.Dal.Aspects.Report
 {

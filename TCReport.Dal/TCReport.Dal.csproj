@@ -60,9 +60,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\TCReport.DTO\TCReport.DTO.csproj">
+    <ProjectReference Include="..\TCReport.DTO\TCReport.DB.csproj">
       <Project>{b6890c0c-f98a-4672-a478-c99fe577f9e7}</Project>
-      <Name>TCReport.DTO</Name>
+      <Name>TCReport.DB</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

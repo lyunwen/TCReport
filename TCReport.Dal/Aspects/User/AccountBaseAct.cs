@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TCReport.AutoSql;
-using TCReport.DTO;
-using TCReport.DTO.DBModel;
+using TCReport.DB;
+using TCReport.DB.DBModel;
 
 namespace TCReport.Dal.Aspects.User
 {

@@ -2,8 +2,8 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Data;
-using TCReport.DTO.AutoCodeAttribute;
-namespace TCReport.DTO.DBModel
+using TCReport.DB.AutoCodeAttribute;
+namespace TCReport.DB.DBModel
 {
     [Table("tc_report_default_preworkcontent")]
     //AutoCreateTime:2016/11/7 11:28:22

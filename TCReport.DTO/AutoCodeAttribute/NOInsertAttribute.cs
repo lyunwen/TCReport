@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TCReport.DTO.AutoCodeAttribute
+namespace TCReport.DB.AutoCodeAttribute
 {
     [AttributeUsage(AttributeTargets.Property,AllowMultiple =false,Inherited =true)]
     public class NOInsertAttribute:Attribute
