@@ -22,7 +22,7 @@ namespace TCReport.DB.DBModel
 		{ #>/// <summary>
 		///<#= string.IsNullOrEmpty(c.TypeName) ?"":" Type["+ c.TypeName#><#= string.IsNullOrEmpty(c.Length) ?"]":"("+ c.Length+")]"#><#= " Nullable["+ c.Nullable+"]" #><#= string.IsNullOrEmpty(c.DefaultVal) ?"":" DefaultVal["+ c.DefaultVal+"]" #>
         /// </summary>
-		<# if(c.IsPrimaryKey) {#>[Key]<# } #><# if(c.Description=="auto_increment") {#>[AutoCreate]<# } #>
+		<# if(c.IsPrimaryKey) {#>[Key]<# } #><# if(c.Description=="auto_increment") {#>[AutoIncrement]<# } #>
 public <#= CodeCommon.DbTypeToCS(c.TypeName) #> <#= c.ColumnName #>{get;set;}
 
 		<# } #>
