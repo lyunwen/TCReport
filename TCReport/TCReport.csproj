@@ -50,9 +50,6 @@
     <Reference Include="Autofac.Integration.Mvc">
       <HintPath>..\DllComponents\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="Maticsoft.CodeHelper">
-      <HintPath>C:\Program Files (x86)\Maticsoft\Codematic2\Maticsoft.CodeHelper.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure">
       <HintPath>..\DllComponents\Microsoft.Web.Infrastructure.dll</HintPath>

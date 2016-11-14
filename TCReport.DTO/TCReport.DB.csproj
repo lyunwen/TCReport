@@ -48,10 +48,10 @@
     <Compile Include="DBModel\Account_ReportGroup_Mapping.cs" />
     <Compile Include="DBModel\Account.cs" />
     <Compile Include="DBModel\Account_ResourceGroup_Mapping.cs" />
+    <Compile Include="DBModel\db_tc_report_default.cs" />
     <Compile Include="DBModel\ResourceGroup.cs" />
     <Compile Include="DBModel\Resource.cs" />
     <Compile Include="DBModel\ReportGroup.cs" />
-    <Compile Include="DBModel\Report_Default.cs" />
     <Compile Include="DBModel\Report_Default_PreWorkContent.cs" />
     <Compile Include="DBModel\Report_Default_WorkContent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
