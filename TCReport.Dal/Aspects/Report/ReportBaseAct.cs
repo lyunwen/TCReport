@@ -54,7 +54,7 @@ namespace TCReport.Dal.Aspects.Report
             if (report == null)
                 return 0;
             report.UUID = Guid.NewGuid().ToString();
-            string reportSql = AutoSqlBuilder<Report_Default>.BuildInsertSql(); 
+            string reportSql = AutoSqlBuilder<db_tc_report_default>.BuildInsertSql(); 
             string workContentSql = AutoSqlBuilder<Report_Default_WorkContent>.BuildInsertSql();
             using (var conn = MDBCommander.Open())
             {
