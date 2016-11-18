@@ -75,6 +75,7 @@
     <Content Include="DBModel\ModelSql\tc_report_property.sql" />
     <Content Include="DBModel\ModelSql\tc_report_type.sql" />
     <Content Include="DBModel\数据库实体说明.txt" />
+    <Content Include="tcreport.sql" />
     <Content Include="基础sql生成模板.txt" />
     <Content Include="数据库实体生成模板.txt" />
   </ItemGroup>
