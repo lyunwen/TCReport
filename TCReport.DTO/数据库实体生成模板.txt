@@ -1,0 +1,30 @@
+﻿<#@ template language="c#" HostSpecific="True" #>
+<#@ output extension= ".cs" #>
+<#
+	TableHost host = (TableHost)(Host);
+	host.Fieldlist.Sort(CodeCommon.CompareByintOrder);
+#>
+using System; 
+using System.Text;
+using System.Collections.Generic; 
+using System.Data;
+using TCReport.DB.AutoCodeAttribute;
+namespace TCReport.DB.DBModel
+{
+	<# if( host.TableDescription.Length > 0) {#>
+ 	//<#= host.TableDescription #>
+	<# } #>
+	[Table("<#= host.GetModelClass(host.TableName) #>")]
+	//AutoCreateTime:<#=System.DateTime.Now.ToString()#>
+	public class db_<#= host.GetModelClass(host.TableName) #>
+	{   
+      	<# foreach (ColumnInfo c in host.Fieldlist)
+		{ #>/// <summary>
+		///<#= string.IsNullOrEmpty(c.TypeName) ?"":" Type["+ c.TypeName#><#= string.IsNullOrEmpty(c.Length) ?"]":"("+ c.Length+")]"#><#= " Nullable["+ c.Nullable+"]" #><#= string.IsNullOrEmpty(c.DefaultVal) ?"":" DefaultVal["+ c.DefaultVal+"]" #>
+        /// </summary>
+		<# if(c.IsPrimaryKey) {#>[Key]<# } #><# if(c.Description=="auto_increment") {#>[AutoIncrement]<# } #>
+public <#= CodeCommon.DbTypeToCS(c.TypeName) #> <#= c.ColumnName #>{get;set;}
+
+		<# } #>
+	}
+}

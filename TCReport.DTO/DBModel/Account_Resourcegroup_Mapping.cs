@@ -2,41 +2,28 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Data;
-using TCReport.DTO.AutoSql.AutoCodeAttribute;
-
-namespace TCReport.DTO.DBModel
+using TCReport.DB.AutoCodeAttribute;
+namespace TCReport.DB.DBModel
 {
     [Table("account_resourcegroup_mapping")]
-    public class Account_ResourceGroup_Mapping
+    public class db_account_resourcegroup_mapping
     {
         /// <summary>
-        /// auto_increment
-        /// </summary>		
-        private long _id;
-        public long ID
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
+        /// Type[bigint(20)] Nullable[False]
+        /// </summary>
+        [Key]
+        [AutoIncrement]
+        public long ID { get; set; }
+
         /// <summary>
-        /// AccountID
-        /// </summary>		
-        private long _accountid;
-        public long AccountID
-        {
-            get { return _accountid; }
-            set { _accountid = value; }
-        }
+        /// Type[bigint(20)] Nullable[False]
+        /// </summary>
+        public long AccountID { get; set; }
+
         /// <summary>
-        /// ResourceGroupID
-        /// </summary>		
-        private long _resourcegroupid;
-        public long ResourceGroupID
-        {
-            get { return _resourcegroupid; }
-            set { _resourcegroupid = value; }
-        }
+        /// Type[bigint(20)] Nullable[False]
+        /// </summary>
+        public long ResourceGroupID { get; set; }
 
     }
 }
-

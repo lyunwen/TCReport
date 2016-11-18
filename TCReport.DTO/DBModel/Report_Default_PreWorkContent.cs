@@ -2,95 +2,59 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Data;
-using TCReport.DTO.AutoSql.AutoCodeAttribute;
-
-namespace TCReport.DTO.DBModel
+using TCReport.DB.AutoCodeAttribute;
+namespace TCReport.DB.DBModel
 {
-	 	//tc_report_default_preworkcontent
-		[Table("tc_report_default_preworkcontent")]
-	public class Report_Default_PreWorkContent
-	{   
-      	/// <summary>
-		/// auto_increment
-        /// </summary>		
-		private long _id;
-        public long ID
-        {
-            get{ return _id; }
-            set{ _id = value; }
-        }        
-		/// <summary>
-		/// Report_DefaultUUID
-        /// </summary>		
-		private string _report_defaultuuid;
-        public string Report_DefaultUUID
-        {
-            get{ return _report_defaultuuid; }
-            set{ _report_defaultuuid = value; }
-        }        
-		/// <summary>
-		/// Content
-        /// </summary>		
-		private string _content;
-        public string Content
-        {
-            get{ return _content; }
-            set{ _content = value; }
-        }        
-		/// <summary>
-		/// NeedDay
-        /// </summary>		
-		private int _needday;
-        public int NeedDay
-        {
-            get{ return _needday; }
-            set{ _needday = value; }
-        }        
-		/// <summary>
-		/// Progress
-        /// </summary>		
-		private decimal _progress;
-        public decimal Progress
-        {
-            get{ return _progress; }
-            set{ _progress = value; }
-        }        
-		/// <summary>
-		/// Level
-        /// </summary>		
-		private int _level;
-        public int Level
-        {
-            get{ return _level; }
-            set{ _level = value; }
-        }        
-		/// <summary>
-		/// State
-        /// </summary>		
-		private int _state;
-        public int State
-        {
-            get{ return _state; }
-            set{ _state = value; }
-        }        
-		/// <summary>
-		/// Remark
-        /// </summary>		
-		private string _remark;
-        public string Remark
-        {
-            get{ return _remark; }
-            set{ _remark = value; }
-        }        
-		/// <summary>
-		/// LeaderRemark
-        /// </summary>		
-		private string _leaderremark;
-        public string LeaderRemark
-        {
-            get{ return _leaderremark; }
-            set{ _leaderremark = value; }
-        }        
-		 
-	}
+    [Table("tc_report_default_preworkcontent")]
+    //AutoCreateTime:2016/11/7 11:28:22
+    public class db_tc_report_default_preworkcontent
+    {
+        /// <summary>
+        /// Type[bigint(20)] Nullable[False]
+        /// </summary>
+        [Key]
+        [AutoIncrement]
+        public long ID { get; set; }
+
+        /// <summary>
+        /// Type[varchar(16)] Nullable[False]
+        /// </summary>
+        public string Report_DefaultUUID { get; set; }
+
+        /// <summary>
+        /// Type[varchar(255)] Nullable[False]
+        /// </summary>
+        public string Content { get; set; }
+
+        /// <summary>
+        /// Type[tinyint(4)] Nullable[False]
+        /// </summary>
+        public int NeedDay { get; set; }
+
+        /// <summary>
+        /// Type[decimal(3)] Nullable[False]
+        /// </summary>
+        public decimal Progress { get; set; }
+
+        /// <summary>
+        /// Type[tinyint(4)] Nullable[False]
+        /// </summary>
+        public int Level { get; set; }
+
+        /// <summary>
+        /// Type[tinyint(4)] Nullable[False]
+        /// </summary>
+        public int State { get; set; }
+
+        /// <summary>
+        /// Type[varchar(2000)] Nullable[True]
+        /// </summary>
+        public string Remark { get; set; }
+
+        /// <summary>
+        /// Type[varchar(2000)] Nullable[True]
+        /// </summary>
+        public string LeaderRemark { get; set; }
+
+    }
 }

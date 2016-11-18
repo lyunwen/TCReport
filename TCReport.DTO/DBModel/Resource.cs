@@ -2,41 +2,28 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Data;
-using TCReport.DTO.AutoSql.AutoCodeAttribute;
-
-namespace TCReport.DTO.DBModel
+using TCReport.DB.AutoCodeAttribute;
+namespace TCReport.DB.DBModel
 {
     [Table("resource")]
-    public class Resource
+    public class db_resource
     {
         /// <summary>
-        /// auto_increment
-        /// </summary>		
-        private long _id;
-        public long ID
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
+        /// Type[bigint(20)] Nullable[False]
+        /// </summary>
+        [Key]
+        [AutoIncrement]
+        public long ID { get; set; }
+
         /// <summary>
-        /// Value
-        /// </summary>		
-        private string _value;
-        public string Value
-        {
-            get { return _value; }
-            set { _value = value; }
-        }
+        /// Type[varchar(255)] Nullable[False]
+        /// </summary>
+        public string Value { get; set; }
+
         /// <summary>
-        /// CreateBy
-        /// </summary>		
-        private string _createby;
-        public string CreateBy
-        {
-            get { return _createby; }
-            set { _createby = value; }
-        }
+        /// Type[varchar(255)] Nullable[False]
+        /// </summary>
+        public string CreateBy { get; set; }
 
     }
 }
-

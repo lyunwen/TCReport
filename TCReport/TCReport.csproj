@@ -50,9 +50,38 @@
     <Reference Include="Autofac.Integration.Mvc">
       <HintPath>..\DllComponents\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.1.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Web.Infrastructure">
-      <HintPath>..\DllComponents\Microsoft.Web.Infrastructure.dll</HintPath>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -110,10 +139,15 @@
     <Content Include="Areas\TCReport\Views\web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="packages.config" />
+    <Content Include="wwwroot\staticHtml\Text.html" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\_references.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.2.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.2.min.js" />
+    <Content Include="wwwroot\Base\base.css" />
     <Content Include="wwwroot\easyUI\demo\accordion\datagrid_data1.json" />
     <Content Include="wwwroot\easyUI\demo\combobox\combobox_data1.json" />
     <Content Include="wwwroot\easyUI\demo\combobox\combobox_data2.json" />
@@ -872,6 +906,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\IOCContainerConfig.cs" />
+    <Compile Include="App_Start\PerApplicationStartAction.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\TCReportViewEngine.cs" />
     <Compile Include="Areas\TCReport\Controllers\ManageController.cs" />
@@ -880,7 +915,7 @@
     <Compile Include="Areas\User\Controllers\UserController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Common\RemarkAttribute.cs" />
-    <Compile Include="Common\UrlAuthorizeCommponent.cs" />
+    <Compile Include="Common\UrlAuthorizehandler.cs" />
     <Compile Include="Common\WXHelper.cs" />
     <Compile Include="Config\CookieConfig.cs" />
     <Compile Include="Config\SessionConfig.cs" />
@@ -892,6 +927,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HttpModules\UrlFinderHttpModule.cs" />
+    <Compile Include="MyConnection1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -929,9 +966,9 @@
       <Project>{7ee4e575-6973-475d-bf67-ae1df0c033ea}</Project>
       <Name>TCReport.Dal</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TCReport.DTO\TCReport.DTO.csproj">
+    <ProjectReference Include="..\TCReport.DTO\TCReport.DB.csproj">
       <Project>{b6890c0c-f98a-4672-a478-c99fe577f9e7}</Project>
-      <Name>TCReport.DTO</Name>
+      <Name>TCReport.DB</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

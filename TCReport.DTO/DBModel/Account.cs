@@ -2,141 +2,83 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Data;
-using TCReport.DTO.AutoSql.AutoCodeAttribute;
-
-namespace TCReport.DTO.DBModel
+using TCReport.DB.AutoCodeAttribute;
+namespace TCReport.DB.DBModel
 {
     [Table("account")]
-    public class Account
+    public class db_account
     {
         /// <summary>
-        /// auto_increment
-        /// </summary>		
-        private long _id;
-        [AutoCreate,Key]
-        public long ID
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
+        /// Type[bigint(20)] Nullable[False]
+        /// </summary>
+        [Key]
+        [AutoIncrement]
+        public long ID { get; set; }
+
         /// <summary>
-        /// Role
-        /// </summary>		
-        private long _role;
-        public long Role
-        {
-            get { return _role; }
-            set { _role = value; }
-        }
+        /// Type[bigint(20)] Nullable[False]
+        /// </summary>
+        public long Role { get; set; }
+
         /// <summary>
-        /// Password
-        /// </summary>		
-        private string _password;
-        public string Password
-        {
-            get { return _password; }
-            set { _password = value; }
-        }
+        /// Type[varchar(50)] Nullable[True]
+        /// </summary>
+        public string Password { get; set; }
+
         /// <summary>
-        /// PasswordVerify
-        /// </summary>		
-        private bool _passwordverify;
-        public bool PasswordVerify
-        {
-            get { return _passwordverify; }
-            set { _passwordverify = value; }
-        }
+        /// Type[bit] Nullable[False] DefaultVal[b'0']
+        /// </summary>
+        public bool PasswordVerify { get; set; }
+
         /// <summary>
-        /// UserName
-        /// </summary>		
-        private string _username;
-        public string UserName
-        {
-            get { return _username; }
-            set { _username = value; }
-        }
+        /// Type[varchar(50)] Nullable[True]
+        /// </summary>
+        public string UserName { get; set; }
+
         /// <summary>
-        /// UserNameVerify
-        /// </summary>		
-        private bool _usernameverify;
-        public bool UserNameVerify
-        {
-            get { return _usernameverify; }
-            set { _usernameverify = value; }
-        }
+        /// Type[bit] Nullable[False] DefaultVal[b'0']
+        /// </summary>
+        public bool UserNameVerify { get; set; }
+
         /// <summary>
-        /// Mobile
-        /// </summary>		
-        private string _mobile;
-        public string Mobile
-        {
-            get { return _mobile; }
-            set { _mobile = value; }
-        }
+        /// Type[varchar(20)] Nullable[True]
+        /// </summary>
+        public string Mobile { get; set; }
+
         /// <summary>
-        /// MobileVerify
-        /// </summary>		
-        private bool _mobileverify;
-        public bool MobileVerify
-        {
-            get { return _mobileverify; }
-            set { _mobileverify = value; }
-        }
+        /// Type[bit] Nullable[False] DefaultVal[b'0']
+        /// </summary>
+        public bool MobileVerify { get; set; }
+
         /// <summary>
-        /// WechatOpenId
-        /// </summary>		
-        private string _wechatopenid;
-        public string WechatOpenId
-        {
-            get { return _wechatopenid; }
-            set { _wechatopenid = value; }
-        }
+        /// Type[varchar(50)] Nullable[True]
+        /// </summary>
+        public string WechatOpenId { get; set; }
+
         /// <summary>
-        /// WechatOpenIdVerify
-        /// </summary>		
-        private bool _wechatopenidverify;
-        public bool WechatOpenIdVerify
-        {
-            get { return _wechatopenidverify; }
-            set { _wechatopenidverify = value; }
-        }
+        /// Type[bit] Nullable[False] DefaultVal[b'0']
+        /// </summary>
+        public bool WechatOpenIdVerify { get; set; }
+
         /// <summary>
-        /// Email
-        /// </summary>		
-        private string _email;
-        public string Email
-        {
-            get { return _email; }
-            set { _email = value; }
-        }
+        /// Type[varchar(50)] Nullable[True]
+        /// </summary>
+        public string Email { get; set; }
+
         /// <summary>
-        /// EmailVerify
-        /// </summary>		
-        private bool _emailverify;
-        public bool EmailVerify
-        {
-            get { return _emailverify; }
-            set { _emailverify = value; }
-        }
+        /// Type[bit] Nullable[False] DefaultVal[b'0']
+        /// </summary>
+        public bool EmailVerify { get; set; }
+
         /// <summary>
-        /// CreateTime
-        /// </summary>		
-        private DateTime _createtime;
-        public DateTime CreateTime
-        {
-            get { return _createtime; }
-            set { _createtime = value; }
-        }
+        /// Type[datetime] Nullable[True]
+        /// </summary>
+        public DateTime CreateTime { get; set; }
+
         /// <summary>
-        /// ResgiterIdentify
-        /// </summary>		
-        private string _resgiteridentify;
-        public string ResgiterIdentify
-        {
-            get { return _resgiteridentify; }
-            set { _resgiteridentify = value; }
-        }
+        /// Type[varchar(50)] Nullable[False] DefaultVal[default]
+        /// </summary>
+        public string ResgiterIdentify { get; set; }
 
     }
 }
-

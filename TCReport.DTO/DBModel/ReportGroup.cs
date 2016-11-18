@@ -2,9 +2,9 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Data;
-using TCReport.DTO.AutoSql.AutoCodeAttribute;
+using TCReport.DB.AutoCodeAttribute;
 
-namespace TCReport.DTO.DBModel
+namespace TCReport.DB.DBModel
 {
     [Table("tc_report_group")]
     public class ReportGroup

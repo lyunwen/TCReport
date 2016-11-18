@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace TCReport.Dal
 {
-    public class MDBCommander
+    internal class MDBCommander
     {
         //配置mysql 数据源
         private const string _SqlConnectionString = @"Server=localhost;Port=3306;Database=tcreport;Uid=root;Pwd=;";

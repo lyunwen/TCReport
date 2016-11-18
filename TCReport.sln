@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCReport", "TCReport\TCRepo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCReport.Dal", "TCReport.Dal\TCReport.Dal.csproj", "{7EE4E575-6973-475D-BF67-AE1DF0C033EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCReport.DTO", "TCReport.DTO\TCReport.DTO.csproj", "{B6890C0C-F98A-4672-A478-C99FE577F9E7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCReport.DB", "TCReport.DTO\TCReport.DB.csproj", "{B6890C0C-F98A-4672-A478-C99FE577F9E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

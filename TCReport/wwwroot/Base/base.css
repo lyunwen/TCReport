@@ -1,0 +1,9 @@
+﻿body,input,a {
+    color:#019000; 
+}
+.border-dashed{
+    border:#1db100 dashed 1px;
+}
+.border-solid{
+    border:#1db100 solid 1px;
+}

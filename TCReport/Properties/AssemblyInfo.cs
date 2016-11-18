@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProduct("TCReport")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2016")]
 [assembly: AssemblyTrademark("")]
+[assembly:System.Web.PreApplicationStartMethod(typeof(TCReport.App_Start.PerApplicationStartAction), "UrlFilter")]
 [assembly: AssemblyCulture("")]
 
 // 将 ComVisible 设置为 false 会使此程序集中的类型

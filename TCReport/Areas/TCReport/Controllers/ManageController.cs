@@ -5,8 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using TCReport.Controllers;
 using TCReport.Dal.Aspects.Report;
-using TCReport.DTO.BOModel;
-using TCReport.DTO.DBModel;
+using TCReport.Dal.BOModel;
+using TCReport.DB.DBModel; 
 
 namespace TCReport.Areas.TCReport.Controllers
 {

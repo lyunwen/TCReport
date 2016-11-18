@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7EE4E575-6973-475D-BF67-AE1DF0C033EA}</ProjectGuid>
+    <ProjectGuid>{B6890C0C-F98A-4672-A478-C99FE577F9E7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TCReport.Dal</RootNamespace>
-    <AssemblyName>TCReport.Dal</AssemblyName>
+    <RootNamespace>TCReport.DB</RootNamespace>
+    <AssemblyName>TCReport.DB</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,13 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dapper">
-      <HintPath>..\DllComponents\Dapper.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\DllComponents\MySql.Data.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,23 +40,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aspects\Report\ReportBaseAct.cs" />
-    <Compile Include="Aspects\User\UserManager.cs" />
-    <Compile Include="BOModel\Report_DefaultBO.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="RDBCommander.cs" />
-    <Compile Include="MDBCommander.cs" />
-    <Compile Include="RDBQuery.cs" />
-    <Compile Include="MDBQuery.cs" />
+    <Compile Include="AutoCodeAttribute\AutoCreateAttribute.cs" />
+    <Compile Include="AutoSql\AutoSqlBuilder.cs" />
+    <Compile Include="AutoCodeAttribute\NOInsertAttribute.cs" />
+    <Compile Include="AutoCodeAttribute\KeyAttribute.cs" />
+    <Compile Include="AutoCodeAttribute\TableAttribute.cs" />
+    <Compile Include="DBModel\Account_ReportGroup_Mapping.cs" />
+    <Compile Include="DBModel\Account.cs" />
+    <Compile Include="DBModel\Account_ResourceGroup_Mapping.cs" />
+    <Compile Include="DBModel\db_tc_report_default.cs" />
+    <Compile Include="DBModel\ResourceGroup.cs" />
+    <Compile Include="DBModel\Resource.cs" />
+    <Compile Include="DBModel\ReportGroup.cs" />
+    <Compile Include="DBModel\Report_Default_PreWorkContent.cs" />
+    <Compile Include="DBModel\Report_Default_WorkContent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Test\Test.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\TCReport.DTO\TCReport.DB.csproj">
-      <Project>{b6890c0c-f98a-4672-a478-c99fe577f9e7}</Project>
-      <Name>TCReport.DB</Name>
-    </ProjectReference>
+    <Folder Include="DBModel\autoCode\" />
+    <Folder Include="DBModel\ModelCT\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DBModel\ModelSql\account.sql" />
+    <Content Include="DBModel\ModelSql\account_reportgroup_mapping.sql" />
+    <Content Include="DBModel\ModelSql\account_resourcegroup_mapping.sql" />
+    <Content Include="DBModel\ModelSql\resource.sql" />
+    <Content Include="DBModel\ModelSql\resourcegroup.sql" />
+    <Content Include="DBModel\ModelSql\tc_reportgroup.sql" />
+    <Content Include="DBModel\ModelSql\tc_report_data.sql" />
+    <Content Include="DBModel\ModelSql\tc_report_default.sql" />
+    <Content Include="DBModel\ModelSql\tc_report_default_preworkcontent.sql" />
+    <Content Include="DBModel\ModelSql\tc_report_default_workcontent.sql" />
+    <Content Include="DBModel\ModelSql\tc_report_instance.sql" />
+    <Content Include="DBModel\ModelSql\tc_report_property.sql" />
+    <Content Include="DBModel\ModelSql\tc_report_type.sql" />
+    <Content Include="DBModel\数据库实体说明.txt" />
+    <Content Include="tcreport.sql" />
+    <Content Include="基础sql生成模板.txt" />
+    <Content Include="数据库实体生成模板.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

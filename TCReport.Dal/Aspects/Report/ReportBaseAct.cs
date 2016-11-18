@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TCReport.DTO.BOModel;
-using TCReport.DTO.DBModel;
+using TCReport.AutoSql;
+using TCReport.Dal.BOModel; 
+using TCReport.DB.DBModel;
 
 namespace TCReport.Dal.Aspects.Report
 {
@@ -53,8 +54,8 @@ namespace TCReport.Dal.Aspects.Report
             if (report == null)
                 return 0;
             report.UUID = Guid.NewGuid().ToString();
-            string reportSql = AutoSql.AutoSql<Report_Default>.ToInsertSql(); 
-            string workContentSql = AutoSql.AutoSql<Report_Default_WorkContent>.ToInsertSql();
+            string reportSql = AutoSqlBuilder<db_tc_report_default>.BuildInsertSql(); 
+            string workContentSql = AutoSqlBuilder<Report_Default_WorkContent>.BuildInsertSql();
             using (var conn = MDBCommander.Open())
             {
                 result = conn.Execute(reportSql, report);  

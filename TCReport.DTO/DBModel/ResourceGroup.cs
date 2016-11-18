@@ -2,40 +2,34 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Data;
-using TCReport.DTO.AutoSql.AutoCodeAttribute;
-
-namespace TCReport.DTO.DBModel
+using TCReport.DB.AutoCodeAttribute;
+namespace TCReport.DB.DBModel
 {
-    [Table("resourcegroup")]
-    public class ResourceGroup
+    [Table("tc_reportgroup")]
+    //AutoCreateTime:2016/11/10 17:49:17
+    public class db_tc_reportgroup
     {
         /// <summary>
-        /// ID
-        /// </summary>		
-        private long _id;
-        public long ID
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
+        /// Type[bigint(20)] Nullable[False]
+        /// </summary>
+        [Key]
+        [AutoIncrement]
+        public long ID { get; set; }
+
         /// <summary>
-        /// ResourceID
-        /// </summary>		
-        private long _resourceid;
-        public long ResourceID
-        {
-            get { return _resourceid; }
-            set { _resourceid = value; }
-        }
+        /// Type[bigint(20)] Nullable[False]
+        /// </summary>
+        public long ParentID { get; set; }
+
         /// <summary>
-        /// Name
-        /// </summary>		
-        private long _name;
-        public long Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
+        /// Type[varchar(255)] Nullable[False]
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Type[bit] Nullable[False]
+        /// </summary>
+        public bool IsValid { get; set; }
+
     }
 }
-
