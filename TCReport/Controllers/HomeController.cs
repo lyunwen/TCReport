@@ -13,11 +13,11 @@ namespace TCReport.Controllers
     [TCReportAuthorizeAttribute]
     public class HomeController : BaseController
     {
-        readonly IAccountBaseAct _accountBaseAct;
+        readonly IUserManager _userManager;
         readonly IReportBaseAct _reportBaseAct;
-        public HomeController(IAccountBaseAct accountBaseAct, IReportBaseAct reportBaseAct)
+        public HomeController(IUserManager userManager, IReportBaseAct reportBaseAct)
         {
-            _accountBaseAct = accountBaseAct;
+            _userManager = userManager;
             _reportBaseAct = reportBaseAct;
         }
         public ActionResult Index()
@@ -27,7 +27,7 @@ namespace TCReport.Controllers
         }
         public ActionResult Test()
         {
-            var t=_accountBaseAct.AccountGetByID(1);
+            var t= _userManager.AccountGetByID(1);
             Dal.BOModel.Report_DefaultBO instance = new Dal.BOModel.Report_DefaultBO
             {
                 BeginDate = DateTime.Now.Date,

@@ -9,7 +9,7 @@ using TCReport.DB.DBModel;
 
 namespace TCReport.Dal.Aspects.User
 {
-    public interface IAccountBaseAct
+    public interface IUserManager
     {
         bool AccountExist(long id);
         db_account AccountGetByID(long id);
@@ -21,27 +21,27 @@ namespace TCReport.Dal.Aspects.User
         int RegisterAccountByWechatOpenId(string wechatOpenID,string ResgiterIdentify);
     }
 
-    public class AccountBaseAct : IAccountBaseAct
+    public class UserManager : IUserManager
     {
-        bool IAccountBaseAct.AccountExist(long id)
+        bool IUserManager.AccountExist(long id)
         {
             string sqlCmd = AutoSqlBuilder<db_account>.BuildExistSql(string.Format("ID=@ID"));
             return MDBQuery.OpenAndQuery<int>(sqlCmd, new { ID = id }).Count() > 0;
         }
 
-        db_account IAccountBaseAct.AccountGetByID(long id)
+        db_account IUserManager.AccountGetByID(long id)
         {
             string sqlCmd = AutoSqlBuilder<db_account>.BuildGetSql("ID=@ID");
             return MDBQuery.OpenAndQuery<db_account>(sqlCmd, new { ID = id }).FirstOrDefault();
         }
 
-        db_account IAccountBaseAct.AccountGetUserName(string userName)
+        db_account IUserManager.AccountGetUserName(string userName)
         {
             string sqlCmd = AutoSqlBuilder<db_account>.BuildGetSql("UserName=@UserName AND UserNameVerify=1");
             return MDBQuery.OpenAndQuery<db_account>(sqlCmd, new { UserName = userName }).FirstOrDefault();
         }
 
-        int IAccountBaseAct.RegisterAccountByEmail(string email, string password, string ResgiterIdentify)
+        int IUserManager.RegisterAccountByEmail(string email, string password, string ResgiterIdentify)
         {
             var foo = MDBQuery.OpenAndQuery<object>(AutoSqlBuilder<db_account>.BuildExistSql("Email=@Email AND EmailVerify=1"), new { Email = email });
             if (foo.Count() > 0)
@@ -68,7 +68,7 @@ namespace TCReport.Dal.Aspects.User
             return MDBCommander.OpenAndExecute(sqlCmd, account); 
         }
 
-        int IAccountBaseAct.RegisterAccountByMobile(string mobile, string password, string ResgiterIdentify)
+        int IUserManager.RegisterAccountByMobile(string mobile, string password, string ResgiterIdentify)
         {
             var foo = MDBQuery.OpenAndQuery<object>(AutoSqlBuilder<db_account>.BuildExistSql("Mobile=@Mobile AND MobileVerify=1"), new { Mobile = mobile });
             if (foo.Count() > 0)
@@ -78,7 +78,7 @@ namespace TCReport.Dal.Aspects.User
             throw new NotImplementedException();
         }
 
-        int IAccountBaseAct.RegisterAccountByUserName(string userName, string password, string ResgiterIdentify)
+        int IUserManager.RegisterAccountByUserName(string userName, string password, string ResgiterIdentify)
         {
             var foo = MDBQuery.OpenAndQuery<object>(AutoSqlBuilder<db_account>.BuildExistSql("UserName=@UserName AND UserNameVerify=1"), new { UserName = userName });
             if (foo.Count() > 0)
@@ -105,7 +105,7 @@ namespace TCReport.Dal.Aspects.User
             return MDBCommander.OpenAndExecute(sqlCmd, account);
         }
 
-        int IAccountBaseAct.RegisterAccountByWechatOpenId(string weChatOpenID, string ResgiterIdentify)
+        int IUserManager.RegisterAccountByWechatOpenId(string weChatOpenID, string ResgiterIdentify)
         {
             var foo = MDBQuery.OpenAndQuery<object>(AutoSqlBuilder<db_account>.BuildExistSql("WechatOpenId=@WechatOpenId AND WechatOpenIdVerify=1"), new { WechatOpenId = weChatOpenID });
             if (foo.Count() > 0)

@@ -25,7 +25,7 @@ namespace TCReport.App_Start
         }
         private void SetupResolveRules(ContainerBuilder builder)
         {
-            builder.RegisterType<AccountBaseAct>().As<IAccountBaseAct>();
+            builder.RegisterType<UserManager>().As<IUserManager>();
             builder.RegisterType<ReportBaseAct>().As<IReportBaseAct>(); 
         //    builder.RegisterType<TCReportAuthorizeAttribute>().As<IAuthorizationFilter>().AsAuthorizationFilterFor<HomeController>();
         }

@@ -9,21 +9,20 @@ namespace TCReport.Controllers
 {
     public class AccountController : BaseController
     {
-        readonly IAccountBaseAct _accountBaseAct;
-        public AccountController(IAccountBaseAct accountBaseAct)
+        readonly IUserManager _userManager;
+        public AccountController(IUserManager userManager)
         {
-            _accountBaseAct = accountBaseAct;
+            _userManager = userManager;
         }
         [HttpGet]
         public ActionResult SignIn()
-        {
-            var foo = _accountBaseAct.AccountExist(1);
+        { 
             return View();
         }
         [HttpPost]
         public ActionResult SignIn(string userName, string password)
         {
-            var account = _accountBaseAct.AccountGetUserName(userName);
+            var account = _userManager.AccountGetUserName(userName);
             if (account == null)
             {
                 return Json(new { msg = "用户名不存在", state = "false" });
@@ -61,10 +60,10 @@ namespace TCReport.Controllers
         [HttpPost]
         public ActionResult RegisterByUserName(string userName, string password)
         {
-            var account = _accountBaseAct.AccountGetUserName(userName);
+            var account = _userManager.AccountGetUserName(userName);
             if (account == null)
             {
-                int result = _accountBaseAct.RegisterAccountByUserName(userName, password, "PC");
+                int result = _userManager.RegisterAccountByUserName(userName, password, "PC");
                 if (result > 0)
                 {
                     return Json(new { state = "true" });
