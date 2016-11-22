@@ -35,11 +35,11 @@ namespace TCReport.HttpModules
         private void Context_AuthorizeRequest(object sender, EventArgs e)
         { 
             HttpApplication ap = sender as HttpApplication;
-            if (ap != null)
-            {
-                var url = string.Format(ap.Request.Url.Authority + "/staticHtml" + ap.Request.Url.PathAndQuery+".html");
-                ap.Response.Redirect(url); 
-            }
+            //if (ap != null)
+            //{
+            //    var url = string.Format(ap.Request.Url.Authority + "/staticHtml" + ap.Request.Url.PathAndQuery+".html");
+            //    ap.Response.Redirect(url); 
+            //}
         }
     }
 }

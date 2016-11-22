@@ -8,7 +8,7 @@ namespace TCReport.Dal
     internal class MDBQuery
     {
         //配置mysql 数据源
-        private const string _SqlConnectionString = @"Server=localhost;Port=3306;Database=tcreport;Uid=root;Pwd=;";
+        private const string _SqlConnectionString = @"Server=localhost;Port=3306;Database=tcreport;Uid=root;Pwd=123456;";
         internal static IDbConnection Open()
         {
             MySqlConnection conn = new MySqlConnection(_SqlConnectionString);
