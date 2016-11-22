@@ -7,8 +7,5 @@ using System.Threading.Tasks;
 
 namespace TCReport.Dal.Test
 {
-    class demo
-    {
-        Rijndael.Create
-    }
+    
 }

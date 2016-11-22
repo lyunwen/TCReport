@@ -6,9 +6,9 @@
         .form-body {
             font-size: 14px;
             position: absolute;
-            width: 300px;
+            width: 250px;
             padding: 20px;
-            border-radius: 3px 4px; 
+            border-radius: 3px 4px;
             -moz-border-radius: 6px;
             -webkit-border-radius: 6px;
             border-radius: 6px;
@@ -23,6 +23,7 @@
             filter: alpha(opacity = 88);
             /*INNER ELEMENTS MUST NOT BREAK THIS ELEMENTS BOUNDARIES*/
             /*All filters must be placed together*/
+            background-color: rgba(70, 70, 70, 0.1);
         }
 
             .form-body .input-cell {
@@ -31,7 +32,7 @@
 
             .form-body .input-des {
                 display: inline-block;
-                width: 65px;
+                width: 45px;
             }
 
             .form-body .input-center {
@@ -40,6 +41,11 @@
 
                 .form-body .input-center input {
                     width: 170px;
+                    outline: none;
+                    color: black;
+                    background-color: transparent !important;
+                    border: none;
+                    border-bottom: #019000 solid 1px;
                 }
 
             .form-body .errorMsg {
@@ -163,7 +169,7 @@
         }, 100)
     } ();
 </script>
-<div class="form-body border-dashed" id="form-body">
+<div class="form-body" id="form-body">
     <div class="head">登入</div>
     <div class="content">
         <div class="content-SignIn">
@@ -189,7 +195,7 @@
         <div class="errorMsg"></div>
     </div>
     <div class="foot">
-        <input type="button" id="SignIn" value="登入" />
+        <input type="button" id="SignIn" class="button-normal" value="登入" />
         <a href="/account/signup" style="font-size:12px;">注册界面...</a>
     </div>
 </div>
@@ -197,7 +203,7 @@
     <script type="text/javascript">
         $(function () {
             $("#SignIn").bind("click", function () { SignIn(); });
-            AccessInit(); 
+            AccessInit();
         })
 
         function SignInValidate() {
@@ -215,9 +221,9 @@
         }
 
         function AccessInit() {
-            var top = ($(window).height() - $("#form-body").height()) / 3;
-            var width = ($(window).width() - $("#form-body").width()) / 2;
-            $("#form-body").css("top", parseInt(top) + "px").css("left", parseInt(width) + "px"); 
+            var top = ($(window).height() - $("#form-body").outerHeight()) / 3;
+            var width = ($(window).width() - $("#form-body").outerWidth()) / 2; 
+            $("#form-body").css("top", parseInt(top) + "px").css("left", parseInt(width) + "px");
         }
 
         function SignIn() {

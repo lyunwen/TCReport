@@ -1,9 +1,21 @@
-﻿body,input,a {
-    color:#019000; 
+﻿body, input, a {
+    color: #019000;
 }
-.border-dashed{
-    border:#1db100 dashed 1px;
+
+.border-dashed {
+    border: #1db100 dashed 1px;
 }
-.border-solid{
-    border:#1db100 solid 1px;
+
+.border-solid {
+    border: #1db100 solid 1px;
+}
+
+
+
+.button-normal { 
+    background-color:rgba(255,255,255,0);
+    outline:none;
+    border: none;
+    border-bottom:solid #1db100 1px;
+    cursor:pointer;
 }
