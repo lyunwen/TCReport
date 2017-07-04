@@ -9,8 +9,7 @@ using TCReport.Dal.BOModel;
 using TCReport.DB.DBModel; 
 
 namespace TCReport.Areas.TCReport.Controllers
-{
-    [Filters.TCReportAuthorize]
+{ 
     public class ManageController : BaseController
     {
         readonly IReportBaseAct _reportBaseAct;

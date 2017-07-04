@@ -47,7 +47,7 @@ namespace TCReport.Controllers
         [Remark("卖主")]
         Vendor = 4,
         [Remark("管理员")]
-        Diancan=16,
+        Diancan = 16,
         [Remark("超级管理员")]
         SuperManager = 1024,
         [Remark("所有角色")]

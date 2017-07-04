@@ -10,7 +10,6 @@ using TCReport.Filters;
 
 namespace TCReport.Controllers
 {
-    [TCReportAuthorizeAttribute]
     public class HomeController : BaseController
     {
         readonly IUserManager _userManager;

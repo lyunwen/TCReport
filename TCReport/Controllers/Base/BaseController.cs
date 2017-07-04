@@ -5,7 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace TCReport.Controllers
-{
+{ 
+    [Filters.TCReportAuthorizeAttribute]
     public abstract class BaseController : Controller
     {
         internal Controllers.TCReport_User LoginUser
