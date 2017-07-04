@@ -14,6 +14,7 @@ namespace TCReport.DB.AutoCodeAttribute
     {
         public KeyAttribute()
         { 
+            //test0704
         }
     }
 }
