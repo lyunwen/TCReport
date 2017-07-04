@@ -13,8 +13,7 @@ namespace TCReport.DB.AutoCodeAttribute
     public class KeyAttribute:Attribute
     {
         public KeyAttribute()
-        {
-
+        { 
         }
     }
 }
