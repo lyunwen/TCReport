@@ -9,5 +9,6 @@ namespace TCReport.DB.AutoCodeAttribute
     [AttributeUsage(AttributeTargets.Property,AllowMultiple =false,Inherited =true)]
     public class NOInsertAttribute:Attribute
     {
+
     }
 }
